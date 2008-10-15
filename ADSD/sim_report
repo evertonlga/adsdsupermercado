@@ -1,0 +1,23 @@
+############################################################
+#                                                          #
+#                    SIMULATION REPORT                     #
+#                                                          #
+############################################################
+
+Version: SimJava 2.0
+
+Simulation date:         15 de Outubro de 2008
+Simulation start time:   5h55min44s BRT
+Simulation end time:     5h55min44s BRT
+
+############################################################
+#            Overall simulation run information            #
+############################################################
+
+Total simulated time:    10132.215509104373
+Total transient time:    0.0
+Total steady state time: 10132.215509104373
+Transient condition:     None
+Termination condition:   None
+Output analysis method:  None
+
