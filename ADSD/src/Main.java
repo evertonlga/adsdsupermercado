@@ -18,7 +18,11 @@ public class Main {
 		if(atendente.getTemProduto() < caixa.getVendasEfetuadas()){
 			System.out.println("A CASA CAIU!!!");
 		}
+		Sim_system.set_report_detail(false, false);
+		
+		Sim_system.generate_graphs("supermercado.sjg");
 
+		Sim_system.run();
 	}
 
 }
