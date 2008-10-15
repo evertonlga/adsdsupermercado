@@ -1,12 +1,14 @@
 import eduni.simjava.Sim_entity;
 import eduni.simjava.Sim_event;
 import eduni.simjava.Sim_port;
+import eduni.simjava.Sim_stat;
 import eduni.simjava.Sim_system;
 import eduni.simjava.distributions.Sim_normal_obj;
 
 
 public class Atendente extends Sim_entity{
 	
+	private Sim_stat stat;
 	private Sim_port saida;
 	private Sim_port chegada;
 	private Sim_normal_obj delay;
@@ -24,6 +26,13 @@ public class Atendente extends Sim_entity{
       add_port(saida);
       chegada = new Sim_port("chegadaAtendente");
       add_port(chegada);
+      stat = new Sim_stat();
+      stat.add_measure(Sim_stat.UTILISATION); //taxa de utilização
+	  stat.add_measure(Sim_stat.SERVICE_TIME); //tempo de serviço
+	  stat.add_measure(Sim_stat.WAITING_TIME); //tempo de espera
+	  stat.measure_for(new int[] { 0, 1 } );
+		
+	  set_stat(stat);
     }
 	
 	public int getTemProduto(){
