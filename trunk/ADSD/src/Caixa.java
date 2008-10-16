@@ -1,6 +1,5 @@
 import eduni.simjava.Sim_entity;
 import eduni.simjava.Sim_event;
-import eduni.simjava.Sim_from_p;
 import eduni.simjava.Sim_port;
 import eduni.simjava.Sim_stat;
 import eduni.simjava.Sim_system;
@@ -37,25 +36,39 @@ public class Caixa extends Sim_entity{
 	
 	public int getVendasPerdidas(){
 		return qteVendasPerdidas;
-	}
-    
+	}	
+	
 	public void body(){
+//		VerificadorPaciencia verificador = new VerificadorPaciencia(this);
+//		new Thread(verificador).start();
 		while(Sim_system.running()){//TODO TÁ COM FILA INFINITA!!!
 			Sim_event e = new Sim_event();
 			double tempo = delay.sample();
 			tempo = Math.abs(tempo);
-			sim_get_next(new Sim_from_p(Sim_system.get_entity_id("Cliente")), e);//TODO continuar			
-			
-			sim_get_next(e);
-			
-			if(q >= Math.random()){
-				sim_process(tempo);
-				sim_completed(e);
-				qteVendasEfetuadas++;
-			}else{
+			while(sim_cancel(new Predicado(), e) != 0){
 				qteVendasPerdidas++;
-			}
+			}			
+			sim_get_next(e);			
+			sim_process(tempo);
+			sim_completed(e);
+			qteVendasEfetuadas++;			
 		}
-	}
-	
+	}	
 }
+
+//class VerificadorPaciencia implements Runnable{
+//	
+//	private Caixa c;
+//	
+//	public VerificadorPaciencia(Caixa caixa) {
+//		this.
+//		c = caixa;
+//	}
+//	
+//	public void run() {
+//		Sim_event e = new Sim_event();
+//		c.sim_get_next(new Predicado(), e);
+//		
+//	}
+//	
+//}

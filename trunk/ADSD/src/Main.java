@@ -4,20 +4,37 @@ import eduni.simjava.Sim_system;
 
 
 public class Main {
+	
+	private static double paciencia;
+	
+	public static double getPaciencia(){
+		return paciencia;
+	}
 				
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Digite a quantidade de clientes");
-		int qteCliente = input.nextInt();
+//		int qteCliente = input.nextInt();
+		int qteCliente = 1000;
+		System.out.println("Digite a quantidade de produtos");
+//		int qteProdutos = input.nextInt();
+		int qteProdutos = 1000;
 		System.out.println("Digite a média e a variancia do tempo do atendente");		
-		int mediaAt = input.nextInt();
-		int varAt = input.nextInt();
+//		double mediaAt = input.nextDouble();
+		double mediaAt = 50;		
+//		double varAt = input.nextDouble();
+		double varAt = 10;
 		System.out.println("Digite a média e a variancia do tempo do caixa");
-		int mediaCx = input.nextInt();
-		int varCx = input.nextInt();
+//		double mediaCx = input.nextDouble();
+		double mediaCx = 50;
+//		double varCx = input.nextDouble();
+		double varCx = 10;
+		System.out.println("Digite a paciencia do cliente");
+//		paciencia = input.nextDouble();
+		paciencia = 5;
 		Sim_system.initialise();
 		Source fonte = new Source("fonte", qteCliente);
-		Atendente atendente = new Atendente("atendente", mediaAt, varAt);//TODO 
+		Atendente atendente = new Atendente("atendente", mediaAt, varAt, qteProdutos);//TODO 
 		Caixa caixa = new Caixa("caixa", mediaCx, varCx);
 		Sim_system.link_ports("fonte", "saidaFonte", "atendente", "chegadaAtendente");
 		Sim_system.link_ports("atendente", "saidaAtendente", "caixa", "chegadaCaixa");		
