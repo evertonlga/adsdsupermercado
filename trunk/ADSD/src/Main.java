@@ -1,13 +1,24 @@
+import java.util.Scanner;
+
 import eduni.simjava.Sim_system;
 
 
 public class Main {
 				
 	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Digite a quantidade de clientes");
+		int qteCliente = input.nextInt();
+		System.out.println("Digite a média e a variancia do tempo do atendente");		
+		int mediaAt = input.nextInt();
+		int varAt = input.nextInt();
+		System.out.println("Digite a média e a variancia do tempo do caixa");
+		int mediaCx = input.nextInt();
+		int varCx = input.nextInt();
 		Sim_system.initialise();
-		Source fonte = new Source("fonte", 1000);
-		Atendente atendente = new Atendente("atendente", 5, 2.5, 0.9);//TODO 
-		Caixa caixa = new Caixa("caixa", 6, 2, 0.95);
+		Source fonte = new Source("fonte", qteCliente);
+		Atendente atendente = new Atendente("atendente", mediaAt, varAt);//TODO 
+		Caixa caixa = new Caixa("caixa", mediaCx, varCx);
 		Sim_system.link_ports("fonte", "saidaFonte", "atendente", "chegadaAtendente");
 		Sim_system.link_ports("atendente", "saidaAtendente", "caixa", "chegadaCaixa");		
 		Sim_system.run();
