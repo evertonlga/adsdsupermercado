@@ -54,8 +54,8 @@ public class Atendente extends Sim_entity{
 			sim_get_next(e);
 			sim_process(tempo);
 			sim_completed(e);
-			Cliente cliente = new Cliente("Cliente",Sim_system.sim_clock());
-			if(qteProduto > 0){
+			Cliente cliente = new Cliente("Cliente",Sim_system.sim_clock(), Main.getPaciencia());
+			if(qte > 0){
 				sim_schedule(saida, 0.0, 1, cliente);
 				qteTemProduto++;
 				qte--;
