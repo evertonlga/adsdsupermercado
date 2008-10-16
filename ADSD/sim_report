@@ -6,17 +6,17 @@
 
 Version: SimJava 2.0
 
-Simulation date:         15 de Outubro de 2008
-Simulation start time:   7h13min45s BRT
-Simulation end time:     7h13min45s BRT
+Simulation date:         16 de Outubro de 2008
+Simulation start time:   8h37min52s GMT-03:00
+Simulation end time:     8h37min52s GMT-03:00
 
 ############################################################
 #            Overall simulation run information            #
 ############################################################
 
-Total simulated time:    10130.051865525505
+Total simulated time:    10127.943214070774
 Total transient time:    0.0
-Total steady state time: 10130.051865525505
+Total steady state time: 10127.943214070774
 Transient condition:     None
 Termination condition:   None
 Output analysis method:  None
@@ -29,7 +29,7 @@ Output analysis method:  None
 
 - Utilisation
 
-Sample mean:          0.4820677367619888
+Sample mean:          0.4821681039158044
 
 - Service time
 
@@ -45,5 +45,27 @@ Sample mean:          2.55564859020149
 Sample variance:      15.56258199019162
 Sample std deviation: 3.9449438513357347
 Maximum:              26.544244643891943
+Minimum:              0.0
+
+-------------------------- caixa ---------------------------
+
+- Utilisation
+
+Sample mean:          0.5170075491255599
+
+- Service time
+
+Sample mean:          6.01864723998802
+Sample variance:      1.8485576215785544
+Sample std deviation: 1.3596167186301271
+Maximum:              9.901555044289125
+Minimum:              1.810430971413325
+
+- Waiting time
+
+Sample mean:          1.9492670461229578
+Sample variance:      10.581545623610877
+Sample std deviation: 3.2529287762892807
+Maximum:              23.524497261391843
 Minimum:              0.0
 

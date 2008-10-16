@@ -11,14 +11,14 @@ public class Atendente extends Sim_entity{
 	private Sim_stat stat;
 	private Sim_port saida;
 	private Sim_port chegada;
-	private Sim_normal_obj delay;
-	private double p;
+	private Sim_normal_obj delay;	
 	private int qteTemProduto;
 	private int qteNaoTemProduto;
+	private int qteProduto;
 
-	Atendente(String name, double tempoAtendimento, double varTempoAtendimento, double p) {		
+	Atendente(String name, double tempoAtendimento, double varTempoAtendimento, int qteProduto) {		
       super(name);
-      this.p = p;
+      this.qteProduto = qteProduto;
       qteTemProduto = 0;
       qteNaoTemProduto = 0;
       delay = new Sim_normal_obj("tempoAtendente",tempoAtendimento, varTempoAtendimento);//demora 5 minutos em média
@@ -44,19 +44,24 @@ public class Atendente extends Sim_entity{
 	}
 	
 	public void body(){
+		int qte = qteProduto;
 		while(Sim_system.running()){//TODO TÁ COM FILA INFINITA!!!
 			Sim_event e = new Sim_event();
-			double tempo = delay.sample();
+			double tempo;
+			do{
+				tempo = delay.sample();
+			}while(tempo < 0);
 			sim_get_next(e);
-			tempo = Math.abs(tempo);
 			sim_process(tempo);
-			sim_completed(e);			
-			if(p >= Math.random()){
-				sim_schedule(saida, 0.0, 1);
+			sim_completed(e);
+			Cliente cliente = new Cliente("Cliente",Sim_system.sim_clock());
+			if(qteProduto > 0){
+				sim_schedule(saida, 0.0, 1, cliente);
 				qteTemProduto++;
+				qte--;
 			}else{
 				qteNaoTemProduto++;
-				//TODO tratar quando nao tem produto ou quando venceu 
+				qte = qteProduto;//TODO tratar quando nao tem produto ou quando venceu 
 			}
 		}
 	}
