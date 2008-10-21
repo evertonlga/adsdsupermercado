@@ -25,6 +25,8 @@ public class Caixa extends Sim_entity{
       stat.add_measure(Sim_stat.UTILISATION); //taxa de utilização
 	  stat.add_measure(Sim_stat.SERVICE_TIME); //tempo de serviço
 	  stat.add_measure(Sim_stat.WAITING_TIME); //tempo de espera
+	  stat.add_measure(Sim_stat.QUEUE_LENGTH);
+	  stat.add_measure(Sim_stat.THROUGHPUT);
 	  stat.measure_for(new int[] { 0, 1 } );
 		
 	  set_stat(stat);
