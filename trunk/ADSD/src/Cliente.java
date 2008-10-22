@@ -26,7 +26,7 @@ public class Cliente extends Sim_entity{
 	}
 	
 	public boolean pacienciaEsgotada(){		
-		if(Sim_system.sim_clock() - chegadaAoCaixa > paciencia){
+		if(Sim_system.sim_clock() - chegadaAoCaixa >= paciencia){
 			return true;
 		}
 		return false;
