@@ -1,6 +1,8 @@
 import eduni.simjava.Sim_entity;
 import eduni.simjava.Sim_event;
+import eduni.simjava.Sim_from_p;
 import eduni.simjava.Sim_port;
+import eduni.simjava.Sim_predicate;
 import eduni.simjava.Sim_stat;
 import eduni.simjava.Sim_system;
 import eduni.simjava.distributions.Sim_normal_obj;
@@ -13,6 +15,7 @@ public class Caixa extends Sim_entity{
 	private Sim_normal_obj delay;	
 	private int qteVendasEfetuadas;
 	private int qteVendasPerdidas;
+	public double tempo_fila = 0.0;
 
 	Caixa(String name, double tempoCaixa, double varTempoCaixa) {
       super(name);
@@ -41,23 +44,33 @@ public class Caixa extends Sim_entity{
 	}	
 	
 	public void body(){
+		int i = 0;
 //		VerificadorPaciencia verificador = new VerificadorPaciencia(this);
 //		new Thread(verificador).start();
-		while(Sim_system.running()){//TODO TÁ COM FILA INFINITA!!!
+		while(testaPaciencia() == true){//TODO TÁ COM FILA INFINITA!!!
 			Sim_event e = new Sim_event();
-			double tempo = delay.sample();
-			tempo = Math.abs(tempo);
-			while(sim_cancel(new Predicado(), e) != 0){
-				qteVendasPerdidas++;
-			}			
-			sim_get_next(e);			
+			sim_get_next(e);
+			this.tempo_fila = (Double)e.get_data();
+			double tempo;
+			do{
+				tempo = delay.sample();
+			}while(tempo < 0); 			
+			i++; 
+			System.out.println(i+". Tempo em fila: "+tempo_fila );
 			sim_process(tempo);
 			sim_completed(e);
-			qteVendasEfetuadas++;			
+			qteVendasEfetuadas++;				
 		}
-	}	
+	}
+	
+	public boolean testaPaciencia(){
+		if((this.tempo_fila/1000) <= Main.getPaciencia())
+			return true;
+		return false;
+	}
 }
 
+	
 //class VerificadorPaciencia implements Runnable{
 //	
 //	private Caixa c;
