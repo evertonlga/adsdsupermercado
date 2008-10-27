@@ -8,10 +8,12 @@ public class Source extends Sim_entity{
       private Sim_port saida;
       private Sim_negexp_obj tempo;
       private int qteClientes;
+      private int qteProdutos;
 
-      Source(String name, int qteClientes) {    	
+      Source(String name, int qteClientes, int qteProdutos) {    	
         super(name);
         this.qteClientes = qteClientes;
+        this.qteProdutos = qteProdutos;
         saida = new Sim_port("saidaFonte");
         add_port(saida);
         tempo = new Sim_negexp_obj("Atraso", 10);        
