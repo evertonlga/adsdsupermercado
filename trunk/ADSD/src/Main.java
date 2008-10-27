@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+import eduni.simjava.Sim_stat;
 import eduni.simjava.Sim_system;
 
 
@@ -18,7 +19,7 @@ public class Main {
 		int qteCliente = 1000;
 		System.out.println("Digite a quantidade de produtos");
 //		int qteProdutos = input.nextInt();
-		int qteProdutos = 1000;
+		int qteProdutos = 10;
 		System.out.println("Digite a média e a variancia do tempo do atendente");		
 //		double mediaAt = input.nextDouble();
 		double mediaAt = 50;		
@@ -33,11 +34,15 @@ public class Main {
 //		paciencia = input.nextDouble();
 		paciencia = 5;
 		Sim_system.initialise();
-		Source fonte = new Source("fonte", qteCliente);
+		Source fonte = new Source("fonte", qteCliente, qteProdutos);
 		Atendente atendente = new Atendente("atendente", mediaAt, varAt, qteProdutos);//TODO 
 		Caixa caixa = new Caixa("caixa", mediaCx, varCx);
+		
 		Sim_system.link_ports("fonte", "saidaFonte", "atendente", "chegadaAtendente");
 		Sim_system.link_ports("atendente", "saidaAtendente", "caixa", "chegadaCaixa");		
+//		Sim_system.set_termination_condition(Sim_system.INTERVAL_ACCURACY, 
+//				Sim_system.IND_REPLICATIONS, 0.90, 0.02, "caixa", 
+//				Sim_stat.WAITING_TIME);
 		Sim_system.run();
 		System.out.println("Qte tem produto = " + atendente.getTemProduto());
 		System.out.println("Qte nao tem produto = " + atendente.getNaoTemProduto());
@@ -50,7 +55,7 @@ public class Main {
 		
 		Sim_system.generate_graphs("supermercado.sjg");
 
-		Sim_system.run();
+		
 	}
 
 }
