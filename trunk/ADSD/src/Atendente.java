@@ -47,6 +47,7 @@ public class Atendente extends Sim_entity{
 	
 	public void body(){
 		int qte = qteProduto;
+		System.out.println("Quantidade Prod.: "+ qte);
 		while(Sim_system.running()){//TODO TÁ COM FILA INFINITA!!!
 			Sim_event e = new Sim_event();
 			double tempo;
@@ -56,11 +57,10 @@ public class Atendente extends Sim_entity{
 			sim_get_next(e);
 			sim_process(tempo);
 			sim_completed(e);
-			Cliente cliente = new Cliente("Cliente",Sim_system.sim_clock(), Main.getPaciencia());
+			qte--;
 			if(qte > 0){
-				sim_schedule(saida, 0.0, 1, cliente);
 				qteTemProduto++;
-				qte--;
+				sim_schedule(saida, 0.0, 1, new Double (Sim_system.sim_clock()));
 			}else{
 				qteNaoTemProduto++;
 				qte = qteProduto;//TODO tratar quando nao tem produto ou quando venceu 
