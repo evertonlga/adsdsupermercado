@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-import eduni.simjava.Sim_stat;
 import eduni.simjava.Sim_system;
 
 
@@ -16,23 +15,23 @@ public class Main {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Digite a quantidade de clientes");
 //		int qteCliente = input.nextInt();
-		int qteCliente = 1000;
+		int qteCliente = 10;
 		System.out.println("Digite a quantidade de produtos");
 //		int qteProdutos = input.nextInt();
-		int qteProdutos = 10;
+		int qteProdutos = 5;
 		System.out.println("Digite a média e a variancia do tempo do atendente");		
 //		double mediaAt = input.nextDouble();
-		double mediaAt = 50;		
+		double mediaAt = 5;		
 //		double varAt = input.nextDouble();
-		double varAt = 10;
+		double varAt = 1;
 		System.out.println("Digite a média e a variancia do tempo do caixa");
 //		double mediaCx = input.nextDouble();
-		double mediaCx = 50;
+		double mediaCx = 5;
 //		double varCx = input.nextDouble();
-		double varCx = 10;
+		double varCx = 1;
 		System.out.println("Digite a paciencia do cliente");
 //		paciencia = input.nextDouble();
-		paciencia = 5;
+		paciencia = 1;
 		Sim_system.initialise();
 		Source fonte = new Source("fonte", qteCliente, qteProdutos);
 		Atendente atendente = new Atendente("atendente", mediaAt, varAt, qteProdutos);//TODO 

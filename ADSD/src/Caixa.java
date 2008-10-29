@@ -1,8 +1,6 @@
 import eduni.simjava.Sim_entity;
 import eduni.simjava.Sim_event;
-import eduni.simjava.Sim_from_p;
 import eduni.simjava.Sim_port;
-import eduni.simjava.Sim_predicate;
 import eduni.simjava.Sim_stat;
 import eduni.simjava.Sim_system;
 import eduni.simjava.distributions.Sim_normal_obj;
@@ -15,7 +13,7 @@ public class Caixa extends Sim_entity{
 	private Sim_normal_obj delay;	
 	private int qteVendasEfetuadas;
 	private int qteVendasPerdidas;
-	public double tempo_fila = 0.0;
+//	public double tempo_fila = 0.0;
 
 	Caixa(String name, double tempoCaixa, double varTempoCaixa) {
       super(name);
@@ -44,30 +42,51 @@ public class Caixa extends Sim_entity{
 	}	
 	
 	public void body(){
+		Double last = 0.0;
 		int i = 0;
-//		VerificadorPaciencia verificador = new VerificadorPaciencia(this);
-//		new Thread(verificador).start();
-		while(testaPaciencia() == true){//TODO TÁ COM FILA INFINITA!!!
+//		boolean parou = false;
+		boolean pacienciaPassou = false;
+		Double cliente = 0.0;
+		while(Sim_system.running()){//TODO TÁ COM FILA INFINITA!!!
 			Sim_event e = new Sim_event();
-			sim_get_next(e);
-			this.tempo_fila = (Double)e.get_data();
-			double tempo;
-			do{
-				tempo = delay.sample();
-			}while(tempo < 0); 			
-			i++; 
-			System.out.println(i+". Tempo em fila: "+tempo_fila );
-			sim_process(tempo);
-			sim_completed(e);
-			qteVendasEfetuadas++;				
+			last = cliente.doubleValue();
+			while(Sim_system.running()){
+				sim_get_next(e);
+				System.out.println(e.get_data());
+				cliente = (Double) e.get_data();
+				pacienciaPassou = false;
+//				if(cliente == null){
+//					System.out.println("AQUI!!");
+//					parou = true;
+//					break;
+//				}
+//				System.out.println(Sim_system.clock() - cliente.doubleValue() < Main.getPaciencia());
+				System.out.println("last = " + last + "   cliente = " + cliente.doubleValue());
+				if(Sim_system.clock() - cliente.doubleValue() < Main.getPaciencia()){					
+					break;
+				}else if (cliente.doubleValue() != last){
+					qteVendasPerdidas++;
+					pacienciaPassou = true;
+				}
+			}
+			if(!pacienciaPassou){
+				double tempo;
+				do{
+					tempo = delay.sample();
+				}while(tempo < 0); 			
+				i++;			
+				sim_process(tempo);
+				sim_completed(e);
+				qteVendasEfetuadas++;
+			}			
 		}
 	}
 	
-	public boolean testaPaciencia(){
-		if((this.tempo_fila/1000) <= Main.getPaciencia())
-			return true;
-		return false;
-	}
+//	public boolean testaPaciencia(){
+//		if((this.tempo_fila/1000) <= Main.getPaciencia())
+//			return true;
+//		return false;
+//	}
 }
 
 	

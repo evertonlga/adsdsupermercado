@@ -55,13 +55,15 @@ public class Atendente extends Sim_entity{
 				tempo = delay.sample();
 			}while(tempo < 0);
 			sim_get_next(e);
+			if(e.event_time() < 0)
+				break;			
 			sim_process(tempo);
-			sim_completed(e);
-			qte--;
+			sim_completed(e);			
 			if(qte > 0){
+				qte--;				
 				qteTemProduto++;
 				sim_schedule(saida, 0.0, 1, new Double (Sim_system.sim_clock()));
-			}else{
+			}else{				
 				qteNaoTemProduto++;
 				qte = qteProduto;//TODO tratar quando nao tem produto ou quando venceu 
 			}
