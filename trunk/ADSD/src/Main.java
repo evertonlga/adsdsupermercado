@@ -13,28 +13,32 @@ public class Main {
 				
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		System.out.println("Digite a quantidade de clientes");
+		System.out.println("Digite o tempo de simulacao");
 //		int qteCliente = input.nextInt();
-		int qteCliente = 10;
+		long tempo = 2000;
 		System.out.println("Digite a quantidade de produtos");
 //		int qteProdutos = input.nextInt();
-		int qteProdutos = 5;
+		int qteProdutos = 100;
+		System.out.println("Digite o tempo de validade do estoque");
+		double tempoValidade = 450;
+		System.out.println("Digite o tempo de reposicao do estoque");
+		double tempoReposicao = 100;
 		System.out.println("Digite a média e a variancia do tempo do atendente");		
 //		double mediaAt = input.nextDouble();
-		double mediaAt = 5;		
+		double mediaAt = 5;
 //		double varAt = input.nextDouble();
-		double varAt = 1;
+		double varAt = 4;
 		System.out.println("Digite a média e a variancia do tempo do caixa");
 //		double mediaCx = input.nextDouble();
 		double mediaCx = 5;
 //		double varCx = input.nextDouble();
-		double varCx = 1;
+		double varCx = 4;
 		System.out.println("Digite a paciencia do cliente");
 //		paciencia = input.nextDouble();
 		paciencia = 1;
 		Sim_system.initialise();
-		Source fonte = new Source("fonte", qteCliente, qteProdutos);
-		Atendente atendente = new Atendente("atendente", mediaAt, varAt, qteProdutos);//TODO 
+		Source fonte = new Source("fonte", tempo);
+		Atendente atendente = new Atendente("atendente", mediaAt, varAt, qteProdutos, tempoValidade, tempoReposicao);//TODO 
 		Caixa caixa = new Caixa("caixa", mediaCx, varCx);
 		
 		Sim_system.link_ports("fonte", "saidaFonte", "atendente", "chegadaAtendente");
@@ -45,8 +49,9 @@ public class Main {
 		Sim_system.run();
 		System.out.println("Qte tem produto = " + atendente.getTemProduto());
 		System.out.println("Qte nao tem produto = " + atendente.getNaoTemProduto());
+		System.out.println("Qte produtos vencidos = " + atendente.getProdutosVencidos());
 		System.out.println("Qte vendas efetuadas = " + caixa.getVendasEfetuadas());
-		System.out.println("Qte vendas perdidas = " + caixa.getVendasPerdidas());
+		System.out.println("Qte vendas perdidas = " + caixa.getVendasPerdidas());		
 		if(atendente.getTemProduto() < caixa.getVendasEfetuadas()){
 			System.out.println("A CASA CAIU!!!");
 		}
