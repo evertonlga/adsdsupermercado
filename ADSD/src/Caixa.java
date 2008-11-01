@@ -19,7 +19,7 @@ public class Caixa extends Sim_entity{
       super(name);
       qteVendasEfetuadas = 0;
       qteVendasPerdidas = 0;
-      delay = new Sim_normal_obj("tempoAtendente",tempoCaixa, varTempoCaixa);//demora 5 minutos em média      
+      delay = new Sim_normal_obj("tempoAtendente",tempoCaixa, varTempoCaixa, Math.round(Math.random() * 1000000000));//demora 5 minutos em média      
       chegada = new Sim_port("chegadaCaixa");
       add_port(chegada);
       stat = new Sim_stat();
@@ -44,24 +44,18 @@ public class Caixa extends Sim_entity{
 	public void body(){
 		Double last = 0.0;
 		int i = 0;
-//		boolean parou = false;
 		boolean pacienciaPassou = false;
 		Double cliente = 0.0;
 		while(Sim_system.running()){//TODO TÁ COM FILA INFINITA!!!
-			Sim_event e = new Sim_event();
-			last = cliente.doubleValue();
-			while(Sim_system.running()){
+			Sim_event e = new Sim_event();			
+			while(Sim_system.running()){				
 				sim_get_next(e);
-				System.out.println(e.get_data());
+				if(!Sim_system.running())
+					break;
 				cliente = (Double) e.get_data();
 				pacienciaPassou = false;
-//				if(cliente == null){
-//					System.out.println("AQUI!!");
-//					parou = true;
-//					break;
-//				}
 //				System.out.println(Sim_system.clock() - cliente.doubleValue() < Main.getPaciencia());
-				System.out.println("last = " + last + "   cliente = " + cliente.doubleValue());
+//				System.out.println("Sim_system.running()= " + Sim_system.running() + " last = " + last + "   cliente = " + cliente.doubleValue());
 				if(Sim_system.clock() - cliente.doubleValue() < Main.getPaciencia()){					
 					break;
 				}else if (cliente.doubleValue() != last){
@@ -69,6 +63,9 @@ public class Caixa extends Sim_entity{
 					pacienciaPassou = true;
 				}
 			}
+			last = cliente.doubleValue();
+			if(!Sim_system.running())
+				break;
 			if(!pacienciaPassou){
 				double tempo;
 				do{
