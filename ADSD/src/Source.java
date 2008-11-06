@@ -10,12 +10,12 @@ public class Source extends Sim_entity{
       private Sim_negexp_obj tempo;       
       private long tempoMaximo;
 
-      Source(String name, long tempoMaximo) {    	  
+      Source(String name, long tempoMaximo, double tempoInterChegada) {    	  
         super(name);
         this.tempoMaximo = tempoMaximo;
         saida = new Sim_port("saidaFonte");
         add_port(saida);
-        tempo = new Sim_negexp_obj("Atraso", 5, Math.round(Math.random() * 1000000000));        
+        tempo = new Sim_negexp_obj("Atraso", tempoInterChegada, Math.round(Math.random() * 1000000000));        
       }
       
       public void body(){
