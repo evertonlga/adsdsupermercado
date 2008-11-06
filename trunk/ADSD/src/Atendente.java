@@ -27,14 +27,14 @@ public class Atendente extends Sim_entity{
       qteTemProduto = 0;
       produtosVencidos = 0;
       qteNaoTemProduto = 0;
-      delay = new Sim_normal_obj("tempoAtendente",tempoAtendimento, varTempoAtendimento, Math.round(Math.random() * 1000000000));//demora 5 minutos em média
+      delay = new Sim_normal_obj("tempoAtendente",tempoAtendimento, varTempoAtendimento, Math.round(Math.random() * 1000000000));//demora 5 minutos em mï¿½dia
       saida = new Sim_port("saidaAtendente");
       add_port(saida);
       chegada = new Sim_port("chegadaAtendente");
       add_port(chegada);
       stat = new Sim_stat();
-      stat.add_measure(Sim_stat.UTILISATION); //taxa de utilização
-	  stat.add_measure(Sim_stat.SERVICE_TIME); //tempo de serviço
+      stat.add_measure(Sim_stat.UTILISATION); //taxa de utilizaï¿½ï¿½o
+	  stat.add_measure(Sim_stat.SERVICE_TIME); //tempo de serviï¿½o
 	  stat.add_measure(Sim_stat.WAITING_TIME); //tempo de espera
 	  stat.add_measure(Sim_stat.QUEUE_LENGTH);
 	  stat.add_measure(Sim_stat.THROUGHPUT);
@@ -56,10 +56,17 @@ public class Atendente extends Sim_entity{
 	}
 	
 	public void body(){
+		
+		
+		int qtePerdeuValidade = 0;
+		int acabouEstoque = 0;
+		
+		
+		
 		int qte = qteProduto;
-		double validade = Sim_system.clock();
+		double dataFabricacao = Sim_system.clock();
 		System.out.println("Quantidade Prod.: "+ qte);
-		while(Sim_system.running()){//TODO TÁ COM FILA INFINITA!!!
+		while(Sim_system.running()){//TODO Tï¿½ COM FILA INFINITA!!!
 			Sim_event e = new Sim_event();
 			double tempo;
 			do{
@@ -70,17 +77,19 @@ public class Atendente extends Sim_entity{
 				break;
 			sim_process(tempo);
 			sim_completed(e);			
-			if(qte > 0 && (Sim_system.clock() - validade <= tempoValidade)){
+			if(qte > 0 && (Sim_system.clock() - dataFabricacao <= tempoValidade)){
 				qte--;
 				qteTemProduto++;
 				sim_schedule(saida, 0.0, 1, new Double (Sim_system.sim_clock()));
 			}else{
-				if(Sim_system.clock() - validade > tempoValidade){
+				if(Sim_system.clock() - dataFabricacao > tempoValidade){
+					qtePerdeuValidade++;
 					produtosVencidos += qte;
 				}
 				qte = qteProduto;//TODO tratar quando nao tem produto ou quando venceu
-				if(Sim_system.clock() - validade <= tempoValidade){
+				if(Sim_system.clock() - dataFabricacao <= tempoValidade){
 					qteNaoTemProduto++;
+					acabouEstoque++;
 				}				
 				double antes = Sim_system.clock();
 				boolean renovouTempo = false;
@@ -89,21 +98,23 @@ public class Atendente extends Sim_entity{
 					if(!Sim_system.running()){
 						break;
 					}
-					if(Sim_system.clock() - antes > tempoReposicao && Sim_system.clock() - validade <= tempoValidade){
-						validade = Sim_system.clock();
+					if(Sim_system.clock() - antes > tempoReposicao && Sim_system.clock() - dataFabricacao <= tempoValidade){
+						dataFabricacao = Sim_system.clock();
 						renovouTempo = true;
 						qte--;
 						qteTemProduto++;
 						sim_schedule(saida, 0.0, 1, new Double (Sim_system.sim_clock()));
 						break;
 					}
-					if(Sim_system.clock() - validade <= tempoValidade){
+					if(Sim_system.clock() - dataFabricacao <= tempoValidade){						
 						qteNaoTemProduto++;
-					}
+					}					
 				}
 				if(!renovouTempo)
-					validade = Sim_system.clock();
+					dataFabricacao = Sim_system.clock();
 			}
 		}
+		System.out.println("qte perdeu validade = " + qtePerdeuValidade);
+		System.out.println("qte acabou estoque = " + acabouEstoque);
 	}
 }
