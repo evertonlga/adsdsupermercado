@@ -17,7 +17,7 @@ public class Main {
 		System.out.println("Digite o tempo de simulacao");
 //		int qteCliente = input.nextInt();
 		long tempo = 10000;
-		System.out.println("Digite o tempo medio de inter chega de clientes");
+		System.out.println("Digite o tempo medio de inter-chegada de clientes");
 		double tempoInterChegada = 5;
 		System.out.println("Digite a quantidade de produtos");
 //		int qteProdutos = input.nextInt();
