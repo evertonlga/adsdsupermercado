@@ -48,9 +48,22 @@ public class Main {
 		Sim_system.link_ports("atendente", "saidaAtendente", "caixa", "chegadaCaixa");		
 		
 		Sim_system.set_transient_condition(Sim_system.TIME_ELAPSED, 100);
+		
+		
+		/*
+		 * Deixar o intervalo de confiança em no máximo 10%
+		 * Nível de Confiança de 90%
+		 *
+		 *     type - The termination condition type. This must be set to INTERVAL_ACCURACY.
+		 *     output_analysis_type - The output analysis method to be used as a variance reduction technique
+		 *     level - The confidence level for which the confidence interval will be calculated
+		 *     accuracy - The accuracy that is required to satisfy the termination condition
+		 *     entity - The name of the entity that contains the measure upon which the termination condition is based
+		 *     measure - The name of the custom measure upon which the termination condition is based
+		 */
 		Sim_system.set_termination_condition(Sim_system.INTERVAL_ACCURACY, 
 				Sim_system.IND_REPLICATIONS, 0.90, 0.02, "caixa", 
-				Sim_stat.WAITING_TIME);
+				Sim_stat.THROUGHPUT);
 		
 		Sim_system.run();
 		System.out.println("Qte tem produto = " + atendente.getTemProduto());
