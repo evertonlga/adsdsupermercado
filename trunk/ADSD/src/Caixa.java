@@ -23,11 +23,12 @@ public class Caixa extends Sim_entity{
       chegada = new Sim_port("chegadaCaixa");
       add_port(chegada);
       stat = new Sim_stat();
+      stat.add_measure(Sim_stat.QUEUE_LENGTH); //tamanho da fila
+      stat.add_measure(Sim_stat.ARRIVAL_RATE); //taxa de chegada
+      stat.add_measure(Sim_stat.SERVICE_TIME); //tempo de serviço
       stat.add_measure(Sim_stat.UTILISATION); //taxa de utilização
-	  stat.add_measure(Sim_stat.SERVICE_TIME); //tempo de serviço
 	  stat.add_measure(Sim_stat.WAITING_TIME); //tempo de espera
-	  stat.add_measure(Sim_stat.QUEUE_LENGTH);
-	  stat.add_measure(Sim_stat.THROUGHPUT);
+	  stat.add_measure(Sim_stat.THROUGHPUT); //vazão do sistema 
 	  stat.measure_for(new int[] { 0, 1 } );
 		
 	  set_stat(stat);
