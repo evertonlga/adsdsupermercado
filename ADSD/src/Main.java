@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+import eduni.simjava.Sim_stat;
 import eduni.simjava.Sim_system;
 
 
@@ -25,12 +26,12 @@ public class Main {
 		double tempoValidade = 500;
 		System.out.println("Digite o tempo de reposicao do estoque");
 		double tempoReposicao = 50;
-		System.out.println("Digite a m�dia e a variancia do tempo do atendente");		
+		System.out.println("Digite a media e a variancia do tempo do atendente");		
 //		double mediaAt = input.nextDouble();
 		double mediaAt = 5;
 //		double varAt = input.nextDouble();
 		double varAt = 3;
-		System.out.println("Digite a m�dia e a variancia do tempo do caixa");
+		System.out.println("Digite a media e a variancia do tempo do caixa");
 //		double mediaCx = input.nextDouble();
 		double mediaCx = 5;
 //		double varCx = input.nextDouble();
@@ -45,9 +46,12 @@ public class Main {
 		
 		Sim_system.link_ports("fonte", "saidaFonte", "atendente", "chegadaAtendente");
 		Sim_system.link_ports("atendente", "saidaAtendente", "caixa", "chegadaCaixa");		
-//		Sim_system.set_termination_condition(Sim_system.INTERVAL_ACCURACY, 
-//				Sim_system.IND_REPLICATIONS, 0.90, 0.02, "caixa", 
-//				Sim_stat.WAITING_TIME);
+		
+		Sim_system.set_transient_condition(Sim_system.TIME_ELAPSED, 100);
+		Sim_system.set_termination_condition(Sim_system.INTERVAL_ACCURACY, 
+				Sim_system.IND_REPLICATIONS, 0.90, 0.02, "caixa", 
+				Sim_stat.WAITING_TIME);
+		
 		Sim_system.run();
 		System.out.println("Qte tem produto = " + atendente.getTemProduto());
 		System.out.println("Qte nao tem produto = " + atendente.getNaoTemProduto());
