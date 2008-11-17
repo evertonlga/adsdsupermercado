@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-import eduni.simjava.Sim_stat;
 import eduni.simjava.Sim_system;
 
 
@@ -47,12 +46,12 @@ public class Main {
 		Sim_system.link_ports("fonte", "saidaFonte", "atendente", "chegadaAtendente");
 		Sim_system.link_ports("atendente", "saidaAtendente", "caixa", "chegadaCaixa");		
 		
-		Sim_system.set_transient_condition(Sim_system.TIME_ELAPSED, 100);
+//		Sim_system.set_transient_condition(Sim_system.TIME_ELAPSED, 100);
 		
 		
 		/*
-		 * Deixar o intervalo de confiança em no máximo 10%
-		 * Nível de Confiança de 90%
+		 * Deixar o intervalo de confianca em no maximo 10%
+		 * Nivel de Confianca de 90%
 		 *
 		 *     type - The termination condition type. This must be set to INTERVAL_ACCURACY.
 		 *     output_analysis_type - The output analysis method to be used as a variance reduction technique
@@ -61,17 +60,22 @@ public class Main {
 		 *     entity - The name of the entity that contains the measure upon which the termination condition is based
 		 *     measure - The name of the custom measure upon which the termination condition is based
 		 */
-		Sim_system.set_termination_condition(Sim_system.INTERVAL_ACCURACY, 
-				Sim_system.IND_REPLICATIONS, 0.90, 0.02, "caixa", 
-				Sim_stat.THROUGHPUT);
+//		Sim_system.set_termination_condition(Sim_system.INTERVAL_ACCURACY, 
+//				Sim_system.IND_REPLICATIONS, 0.90, 0.02, "caixa", 
+//				Sim_stat.THROUGHPUT);
 		
 		Sim_system.run();
-		System.out.println("Qte tem produto = " + atendente.getTemProduto());
-		System.out.println("Qte nao tem produto = " + atendente.getNaoTemProduto());
+		System.out.println();
+		System.out.println("===> Atendente <===");
+		System.out.println("Qte atendimentos efetuados = " + atendente.getQteAtendimentosEfetuados());
+		System.out.println("Qte atendimentos nao realizados por nao ter produto = " + atendente.getNaoTemProduto());
+		System.out.println("Qte atendimentos nao realizados por produto vencido = " + atendente.getPerdasPorValidade());
 		System.out.println("Qte produtos vencidos = " + atendente.getProdutosVencidos());
+		System.out.println();
+		System.out.println("===> Caixa <===");
 		System.out.println("Qte vendas efetuadas = " + caixa.getVendasEfetuadas());
 		System.out.println("Qte vendas perdidas = " + caixa.getVendasPerdidas());		
-		if(atendente.getTemProduto() < caixa.getVendasEfetuadas()){
+		if(atendente.getQteAtendimentosEfetuados() < caixa.getVendasEfetuadas()){
 			System.out.println("A CASA CAIU!!!");
 		}
 		Sim_system.set_report_detail(false, false);
