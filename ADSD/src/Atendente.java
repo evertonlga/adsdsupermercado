@@ -16,6 +16,8 @@ public class Atendente extends Sim_entity{
 	private int qteNaoTemProduto;
 	private int qtePerdasPorValidade;
 	private int qteProduto;
+	private int qtePerdeuValidade;
+	private int acabouEstoque;
 	private int produtosVencidos;
 	private double tempoReposicao;
 	private double tempoValidade;	
@@ -25,11 +27,13 @@ public class Atendente extends Sim_entity{
       this.qteProduto = qteProduto;
       this.tempoValidade = tempoValidade;
       this.tempoReposicao = tempoReposicao;
+      qtePerdeuValidade = 0;
+      acabouEstoque = 0;
       qtePerdasPorValidade = 0;
       atendimentoEfetuado = 0;
       produtosVencidos = 0;
       qteNaoTemProduto = 0;
-      delay = new Sim_normal_obj("tempoAtendente",tempoAtendimento, varTempoAtendimento, Math.round(Math.random() * 1000000000));//demora 5 minutos em midia
+      delay = new Sim_normal_obj("tempoAtendente",tempoAtendimento, varTempoAtendimento, Seed.getPrime());//demora 5 minutos em midia
       saida = new Sim_port("saidaAtendente");
       add_port(saida);
       chegada = new Sim_port("chegadaAtendente");
@@ -46,10 +50,21 @@ public class Atendente extends Sim_entity{
 	  set_stat(stat);
     }
 	
+	
 	public int getQteAtendimentosEfetuados(){
 		return atendimentoEfetuado;
 	}
 	
+	public int getQtePerdeuValidade() {
+		return qtePerdeuValidade;
+	}
+
+
+	public int getAcabouEstoque() {
+		return acabouEstoque;
+	}
+
+
 	public int getNaoTemProduto(){
 		return qteNaoTemProduto;
 	}
@@ -62,13 +77,7 @@ public class Atendente extends Sim_entity{
 		return produtosVencidos;
 	}
 	
-	public void body(){
-		
-		
-		int qtePerdeuValidade = 0;
-		int acabouEstoque = 0;
-		
-		
+	public void body(){		
 		
 		int qte = qteProduto;
 		double dataFabricacao = Sim_system.clock();
@@ -133,8 +142,7 @@ public class Atendente extends Sim_entity{
 					dataFabricacao = Sim_system.clock();
 			}			
 		}
-		System.out.println("qte perdeu validade = " + qtePerdeuValidade);
-		System.out.println("qte acabou estoque = " + acabouEstoque);
+		
 	}
 	
 }

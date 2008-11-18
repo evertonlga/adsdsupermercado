@@ -6,17 +6,17 @@
 
 Version: SimJava 2.0
 
-Simulation date:         29 de Outubro de 2008
-Simulation start time:   15h45min46s GMT-03:00
-Simulation end time:     15h45min46s GMT-03:00
+Simulation date:         18 de Novembro de 2008
+Simulation start time:   11h6min52s BRT
+Simulation end time:     11h6min52s BRT
 
 ############################################################
 #            Overall simulation run information            #
 ############################################################
 
-Total simulated time:    46.587320395419255
+Total simulated time:    10020.400102531848
 Total transient time:    0.0
-Total steady state time: 46.587320395419255
+Total steady state time: 10020.400102531848
 Transient condition:     None
 Termination condition:   None
 Output analysis method:  None
@@ -27,71 +27,81 @@ Output analysis method:  None
 
 ------------------------ atendente -------------------------
 
-- Utilisation
+- Queue length
 
-Sample mean:          0.9432674760937519
+Sample mean:          2.883402694504979
+Sample variance:      10.641292383347977
+Sample std deviation: 3.26209938281285
+Maximum:              15.0
+Minimum:              0.0
+
+- Arrival rate
+
+Sample mean:          0.19160911543989892
+Event count:          1920
 
 - Service time
 
-Sample mean:          4.39443041273581
-Sample variance:      0.1968276525403654
-Sample std deviation: 0.44365262598159544
-Maximum:              5.229511829136953
-Minimum:              3.7288466734568857
+Sample mean:          4.94596840204883
+Sample variance:      1.0057929035638054
+Sample std deviation: 1.0028922691714226
+Maximum:              9.175571743794535
+Minimum:              1.9222002495921515
+
+- Utilisation
+
+Sample mean:          0.8050451460220027
 
 - Waiting time
 
-Sample mean:          20.070277284165442
-Sample variance:      175.33195753635678
-Sample std deviation: 13.24129742647437
-Maximum:              39.530590982353544
-Minimum:              0.0
-
-- Queue length
-
-Sample mean:          4.308098665863357
-Sample variance:      9.04246046290175
-Sample std deviation: 3.0070684167311112
-Maximum:              9.0
+Sample mean:          15.048358674822033
+Sample variance:      246.484987945314
+Sample std deviation: 15.69984037961259
+Maximum:              70.40345838958001
 Minimum:              0.0
 
 - Throughput
 
-Sample mean:          0.2146506799516046
-Event count:          10
+Sample mean:          0.16276795170962247
+Event count:          1631
 
 -------------------------- caixa ---------------------------
 
-- Utilisation
+- Queue length
 
-Sample mean:          0.7502058791515048
+Sample mean:          0.490423265604086
+Sample variance:      0.44442751614899584
+Sample std deviation: 0.6666539703241824
+Maximum:              4.0
+Minimum:              0.0
+
+- Arrival rate
+
+Sample mean:          0.16276795170962247
+Event count:          1631
 
 - Service time
 
-Sample mean:          4.992868807794047
-Sample variance:      1.5398659572003528
-Sample std deviation: 1.2409133560407644
-Maximum:              7.05672941306571
-Minimum:              3.414483106673984
+Sample mean:          4.992493646216503
+Sample variance:      0.9873690388406605
+Sample std deviation: 0.9936644498223032
+Maximum:              8.751997167320042
+Minimum:              1.4314769921147672
+
+- Utilisation
+
+Sample mean:          0.8026533054326433
 
 - Waiting time
 
-Sample mean:          0.6215098053009069
-Sample variance:      0.8243209566303685
-Sample std deviation: 0.9079212282078046
-Maximum:              2.64301626806116
-Minimum:              0.0
-
-- Queue length
-
-Sample mean:          0.12006675207398615
-Sample variance:      0.10565072712039009
-Sample std deviation: 0.3250395777753689
-Maximum:              1.0
+Sample mean:          3.0130210551460377
+Sample variance:      8.151228322215207
+Sample std deviation: 2.8550356078716788
+Maximum:              12.286677828010397
 Minimum:              0.0
 
 - Throughput
 
-Sample mean:          0.1502554759661232
-Event count:          7
+Sample mean:          0.16077202342379018
+Event count:          1611
 
