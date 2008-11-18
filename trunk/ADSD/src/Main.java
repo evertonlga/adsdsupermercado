@@ -29,17 +29,17 @@ public class Main {
 //		double mediaAt = input.nextDouble();
 		double mediaAt = 5;
 //		double varAt = input.nextDouble();
-		double varAt = 3;
+		double varAt = 1;
 		System.out.println("Digite a media e a variancia do tempo do caixa");
 //		double mediaCx = input.nextDouble();
 		double mediaCx = 5;
 //		double varCx = input.nextDouble();
-		double varCx = 3;
+		double varCx = 1;
 		System.out.println("Digite a paciencia do cliente");
 //		paciencia = input.nextDouble();
 		paciencia = 10;
 		Sim_system.initialise();
-		Source fonte = new Source("fonte", tempo, tempoInterChegada);
+		Source source = new Source("fonte", tempo, tempoInterChegada);
 		Atendente atendente = new Atendente("atendente", mediaAt, varAt, qteProdutos, tempoValidade, tempoReposicao);//TODO 
 		Caixa caixa = new Caixa("caixa", mediaCx, varCx);
 		
@@ -66,11 +66,16 @@ public class Main {
 		
 		Sim_system.run();
 		System.out.println();
+		System.out.println("===> Source <===");
+		System.out.println("cliente = " + source.getQteCliente());
+		System.out.println();
 		System.out.println("===> Atendente <===");
 		System.out.println("Qte atendimentos efetuados = " + atendente.getQteAtendimentosEfetuados());
 		System.out.println("Qte atendimentos nao realizados por nao ter produto = " + atendente.getNaoTemProduto());
 		System.out.println("Qte atendimentos nao realizados por produto vencido = " + atendente.getPerdasPorValidade());
 		System.out.println("Qte produtos vencidos = " + atendente.getProdutosVencidos());
+		System.out.println("qte perdeu validade = " + atendente.getQtePerdeuValidade());
+		System.out.println("qte acabou estoque = " + atendente.getAcabouEstoque());
 		System.out.println();
 		System.out.println("===> Caixa <===");
 		System.out.println("Qte vendas efetuadas = " + caixa.getVendasEfetuadas());
