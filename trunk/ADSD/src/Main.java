@@ -45,7 +45,7 @@ public class Main {
 		
 		Sim_system.link_ports("fonte", "saidaFonte", "atendente", "chegadaAtendente");
 		Sim_system.link_ports("atendente", "saidaAtendente", "caixa", "chegadaCaixa");		
-		
+		Sim_system.set_trace_detail(false, false, false);
 //		Sim_system.set_transient_condition(Sim_system.TIME_ELAPSED, 100);
 		
 		
@@ -63,6 +63,9 @@ public class Main {
 //		Sim_system.set_termination_condition(Sim_system.INTERVAL_ACCURACY, 
 //				Sim_system.IND_REPLICATIONS, 0.90, 0.02, "caixa", 
 //				Sim_stat.THROUGHPUT);
+		
+		Sim_system.set_report_detail(false, false);
+		Sim_system.generate_graphs("supermercado.sjg");
 		
 		Sim_system.run();
 		System.out.println();
@@ -83,10 +86,6 @@ public class Main {
 		if(atendente.getQteAtendimentosEfetuados() < caixa.getVendasEfetuadas()){
 			System.out.println("A CASA CAIU!!!");
 		}
-		Sim_system.set_report_detail(false, false);
-		
-		Sim_system.generate_graphs("supermercado.sjg");
-
 		
 	}
 
