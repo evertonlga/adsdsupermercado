@@ -20,7 +20,9 @@ public class Atendente extends Sim_entity{
 	private int acabouEstoque;
 	private int produtosVencidos;
 	private double tempoReposicao;
-	private double tempoValidade;	
+	private double tempoValidade;
+	final static String STAT_ATENDIMENTOS_EFETUADOS = "Atendimentos efetuados";
+
 
 	public Atendente(String name, double tempoAtendimento, double varTempoAtendimento, int qteProduto, double tempoValidade, double tempoReposicao) {		
       super(name);
@@ -41,11 +43,11 @@ public class Atendente extends Sim_entity{
       stat = new Sim_stat();
       stat.add_measure(Sim_stat.QUEUE_LENGTH); //tamanho da fila
       stat.add_measure(Sim_stat.ARRIVAL_RATE); //taxa de chegada
-      stat.add_measure(Sim_stat.RESIDENCE_TIME); //tempo de permanência
-      stat.add_measure(Sim_stat.WAITING_TIME); //tempo de espera
-	  stat.add_measure(Sim_stat.SERVICE_TIME); //tempo de serviço
-	  stat.add_measure(Sim_stat.THROUGHPUT); //vazão do sistema
-	  stat.add_measure(Sim_stat.UTILISATION); //taxa de utilização
+      stat.add_measure(Sim_stat.SERVICE_TIME); //tempo de servico
+      stat.add_measure(Sim_stat.UTILISATION); //taxa de utilizacao
+	  stat.add_measure(Sim_stat.WAITING_TIME); //tempo de espera
+	  stat.add_measure(Sim_stat.THROUGHPUT); //vazao do sistema	  
+	  stat.add_measure(STAT_ATENDIMENTOS_EFETUADOS,Sim_stat.RATE_BASED);
 	  stat.measure_for(new int[] { 0, 1 } );
 		
 	  set_stat(stat);
@@ -98,6 +100,7 @@ public class Atendente extends Sim_entity{
 				atendimentoEfetuado++;
 				sim_process(tempo);
 				sim_completed(e);
+				stat.update(STAT_ATENDIMENTOS_EFETUADOS, Sim_system.sim_clock());
 				sim_schedule(saida, 0.0, 1, new Double (Sim_system.sim_clock()));
 			}else{
 				if(Sim_system.clock() - dataFabricacao > tempoValidade){
@@ -129,6 +132,7 @@ public class Atendente extends Sim_entity{
 						atendimentoEfetuado++;
 						sim_process(tempo);
 						sim_completed(e);
+						stat.update(STAT_ATENDIMENTOS_EFETUADOS, Sim_system.sim_clock());
 						sim_schedule(saida, 0.0, 1, new Double (Sim_system.sim_clock()));
 						break;
 					}
