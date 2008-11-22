@@ -22,8 +22,9 @@ public class Atendente extends Sim_entity{
 	private double tempoReposicao;
 	private double tempoValidade;
 	final static String STAT_ATENDIMENTOS_EFETUADOS = "Atendimentos efetuados";
-
-
+	final static String STAT_QUANTIDADE_NAO_TEM_PRODUTO = "Quantidade não tem produto";
+	final static String STAT_QUANTIDADE_PRODUTOS_VENCIDOS = "Quantidade produtos vencidos";
+	
 	public Atendente(String name, double tempoAtendimento, double varTempoAtendimento, int qteProduto, double tempoValidade, double tempoReposicao) {		
       super(name);
       this.qteProduto = qteProduto;
@@ -48,6 +49,9 @@ public class Atendente extends Sim_entity{
 	  stat.add_measure(Sim_stat.WAITING_TIME); //tempo de espera
 	  stat.add_measure(Sim_stat.THROUGHPUT); //vazao do sistema	  
 	  stat.add_measure(STAT_ATENDIMENTOS_EFETUADOS,Sim_stat.RATE_BASED);
+	  stat.add_measure(STAT_QUANTIDADE_NAO_TEM_PRODUTO,Sim_stat.RATE_BASED);
+	  stat.add_measure(STAT_QUANTIDADE_PRODUTOS_VENCIDOS,Sim_stat.RATE_BASED);
+	  
 	  stat.measure_for(new int[] { 0, 1 } );
 		
 	  set_stat(stat);
@@ -106,11 +110,13 @@ public class Atendente extends Sim_entity{
 				if(Sim_system.clock() - dataFabricacao > tempoValidade){
 					qtePerdasPorValidade++;
 					qtePerdeuValidade++;
+					stat.update(STAT_QUANTIDADE_PRODUTOS_VENCIDOS, Sim_system.sim_clock());
 					produtosVencidos += qte;
 				}
 				qte = qteProduto;//TODO tratar quando nao tem produto ou quando venceu
 				if(Sim_system.clock() - dataFabricacao <= tempoValidade){
 					qteNaoTemProduto++;
+					stat.update(STAT_QUANTIDADE_NAO_TEM_PRODUTO, Sim_system.sim_clock());
 					acabouEstoque++;
 				}				
 				double antes = Sim_system.clock();
@@ -138,10 +144,11 @@ public class Atendente extends Sim_entity{
 					}
 					if(Sim_system.clock() - dataFabricacao <= tempoValidade){
 						qteNaoTemProduto++;
+						stat.update(STAT_QUANTIDADE_NAO_TEM_PRODUTO, Sim_system.sim_clock());
 					}
 					else
 						qtePerdasPorValidade++;
-						
+						stat.update(STAT_QUANTIDADE_PRODUTOS_VENCIDOS, Sim_system.sim_clock());
 				}
 				if(!renovouTempo)
 					dataFabricacao = Sim_system.clock();

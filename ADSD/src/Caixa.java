@@ -13,6 +13,8 @@ public class Caixa extends Sim_entity{
 	private Sim_normal_obj delay;	
 	private int qteVendasEfetuadas;
 	private int qteVendasPerdidas;
+	final static String STAT_VENDAS_EFETUADAS = "Vendas efetuadas";
+	final static String STAT_VENDAS_PERDIDAS = "Vendas perdidas";
 //	public double tempo_fila = 0.0;
 
 	Caixa(String name, double tempoCaixa, double varTempoCaixa) {
@@ -30,6 +32,8 @@ public class Caixa extends Sim_entity{
       stat.add_measure(Sim_stat.SERVICE_TIME); //tempo de serviço
       stat.add_measure(Sim_stat.UTILISATION); //taxa de utilização
 	  stat.add_measure(Sim_stat.THROUGHPUT); //vazão do sistema 
+	  stat.add_measure(STAT_VENDAS_EFETUADAS,Sim_stat.RATE_BASED);
+	  stat.add_measure(STAT_VENDAS_PERDIDAS,Sim_stat.RATE_BASED);
 	  stat.measure_for(new int[] { 0, 1 } );
 		
 	  set_stat(stat);
@@ -62,6 +66,7 @@ public class Caixa extends Sim_entity{
 					break;
 				}else if (cliente.doubleValue() != last){
 					qteVendasPerdidas++;
+					stat.update(STAT_VENDAS_PERDIDAS, Sim_system.sim_clock());
 					pacienciaPassou = true;
 				}
 			}
@@ -77,6 +82,7 @@ public class Caixa extends Sim_entity{
 				sim_process(tempo);
 				sim_completed(e);
 				qteVendasEfetuadas++;
+				stat.update(STAT_VENDAS_EFETUADAS, Sim_system.sim_clock());
 			}			
 		}
 	}
