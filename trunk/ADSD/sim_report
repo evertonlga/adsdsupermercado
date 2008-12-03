@@ -6,17 +6,17 @@
 
 Version: SimJava 2.0
 
-Simulation date:         21 de Novembro de 2008
-Simulation start time:   21h40min9s BRST
-Simulation end time:     21h40min10s BRST
+Simulation date:         3 de Dezembro de 2008
+Simulation start time:   10h6min27s BRT
+Simulation end time:     10h6min27s BRT
 
 ############################################################
 #            Overall simulation run information            #
 ############################################################
 
-Total simulated time:    10010.175315885956
+Total simulated time:    10021.57662330461
 Total transient time:    0.0
-Total steady state time: 10010.175315885956
+Total steady state time: 10021.57662330461
 Transient condition:     None
 Termination condition:   None
 Output analysis method:  None
@@ -29,84 +29,112 @@ Output analysis method:  None
 
 - Queue length
 
-Sample mean:          4.746702333152696
-Sample variance:      30.136067075606018
-Sample std deviation: 5.489632690408897
-Maximum:              34.0
+Sample mean:          0.046683571381541784
+Sample variance:      0.07845715063095969
+Sample std deviation: 0.2801020361064155
+Maximum:              6.0
 Minimum:              0.0
 
 - Arrival rate
 
-Sample mean:          0.20079568404862688
-Event count:          2010
+Sample mean:          0.20216379878677487
+Event count:          2026
 
 - Service time
 
-Sample mean:          4.99256382435322
-Sample variance:      1.0079325663768095
-Sample std deviation: 1.0039584485310185
-Maximum:              8.032967475704027
-Minimum:              1.7449611751089833
+Sample mean:          5.1024680526637445
+Sample variance:      1.0468768214009994
+Sample std deviation: 1.0231699865618613
+Maximum:              7.8355606383265695
+Minimum:              2.593409802356291
 
 - Utilisation
 
-Sample mean:          0.8398931302300288
+Sample mean:          0.08248201411834893
 
 - Waiting time
 
-Sample mean:          23.639463943872254
-Sample variance:      605.4295161223629
-Sample std deviation: 24.605477360180657
-Maximum:              140.51264916534456
+Sample mean:          0.23091953980732047
+Sample variance:      0.7840117596591344
+Sample std deviation: 0.885444385412847
+Maximum:              6.549598418680944
 Minimum:              0.0
 
 - Throughput
 
-Sample mean:          0.1682288218596456
-Event count:          1684
+Sample mean:          0.016165121127076767
+Event count:          162
 
 - Atendimentos efetuados
 
-Sample mean:          0.1682288218596456
-Event count:          1684
+Sample mean:          0.016165121127076767
+Event count:          162
+
+- Quantidade n�o tem produto
+
+Sample mean:          0.1859986776596981
+Event count:          1864
+
+- Quantidade produtos vencidos
+
+Sample mean:          0.16983355653262133
+Event count:          1702
 
 -------------------------- caixa ---------------------------
 
 - Queue length
 
-Sample mean:          0.5209544322765997
-Sample variance:      0.4488778048545394
-Sample std deviation: 0.6699834362538669
-Maximum:              3.0
+Sample mean:          0.0
+Sample variance:      0.0
+Sample std deviation: 0.0
+Maximum:              1.0
 Minimum:              0.0
 
 - Arrival rate
 
-Sample mean:          0.1682288218596456
-Event count:          1684
+Sample mean:          0.016165121127076767
+Event count:          162
 
-- Service time
+- Residence time
 
-Sample mean:          5.011653836273338
-Sample variance:      0.9996717659710813
-Sample std deviation: 0.9998358695161328
-Maximum:              8.617786578061896
-Minimum:              1.271884732923354
-
-- Utilisation
-
-Sample mean:          0.8300875657346839
+Sample mean:          4.914680041258659
+Sample variance:      0.9702167670695462
+Sample std deviation: 0.9849958208386197
+Maximum:              7.637930748418967
+Minimum:              2.1729385384342095
 
 - Waiting time
 
-Sample mean:          3.09670142439228
-Sample variance:      8.090942287111648
-Sample std deviation: 2.8444581710954457
-Maximum:              12.049946820485502
+Sample mean:          0.0
+Sample variance:      0.0
+Sample std deviation: 0.0
+Maximum:              0.0
 Minimum:              0.0
+
+- Service time
+
+Sample mean:          4.914680041258659
+Sample variance:      0.9702167670695462
+Sample std deviation: 0.9849958208386197
+Maximum:              7.637930748418967
+Minimum:              2.1729385384342095
+
+- Utilisation
+
+Sample mean:          0.07944639816777287
 
 - Throughput
 
-Sample mean:          0.16563146475254892
-Event count:          1658
+Sample mean:          0.016165121127076767
+Event count:          162
+
+- Vendas efetuadas
+
+Sample mean:          0.016165121127076767
+Event count:          162
+
+- Vendas perdidas
+
+Sample mean:          0.0
+Event count:          0
 

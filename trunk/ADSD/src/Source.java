@@ -27,7 +27,8 @@ public class Source extends Sim_entity {
 	public void body() {
 		int i = 0;
 		while (Sim_system.clock() <= tempoMaximo) {
-			i++;
+//			System.out.println(Sim_system.clock());
+			i++;			
 			double num;
 			do {
 				num = tempo.sample();
