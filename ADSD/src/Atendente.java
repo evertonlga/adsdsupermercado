@@ -22,7 +22,7 @@ public class Atendente extends Sim_entity{
 	private double tempoReposicao;
 	private double tempoValidade;
 	final static String STAT_ATENDIMENTOS_EFETUADOS = "Atendimentos efetuados";
-	final static String STAT_QUANTIDADE_NAO_TEM_PRODUTO = "Quantidade não tem produto";
+	final static String STAT_QUANTIDADE_NAO_TEM_PRODUTO = "Quantidade nï¿½o tem produto";
 	final static String STAT_QUANTIDADE_PRODUTOS_VENCIDOS = "Quantidade produtos vencidos";
 	
 	public Atendente(String name, double tempoAtendimento, double varTempoAtendimento, int qteProduto, double tempoValidade, double tempoReposicao) {		
@@ -55,6 +55,7 @@ public class Atendente extends Sim_entity{
 	  stat.measure_for(new int[] { 0, 1 } );
 		
 	  set_stat(stat);
+	  System.out.println("entrou no construtor");
     }
 	
 	
@@ -84,11 +85,14 @@ public class Atendente extends Sim_entity{
 		return produtosVencidos;
 	}
 	
-	public void body(){		
+	public void body(){
+
+		System.out.println("Entrou no body");
 		
 		int qte = qteProduto;
+//		System.out.println(Sim_system.clock());
 		double dataFabricacao = Sim_system.clock();
-		System.out.println("Quantidade Prod.: "+ qte);
+		System.out.println("Quantidade Prod.: "+ qteProduto);		
 		while(Sim_system.running()){//TODO TA COM FILA INFINITA!!!			
 			Sim_event e = new Sim_event();
 			double tempo;
