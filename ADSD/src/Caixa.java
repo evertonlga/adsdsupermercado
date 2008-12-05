@@ -38,7 +38,7 @@ public class Caixa extends Sim_entity{
 	  stat.add_measure(STAT_VENDAS_PERDIDAS,Sim_stat.RATE_BASED);
 	  stat.measure_for(new int[] { 0, 1 } );
 		
-	  set_stat(stat);
+	  set_stat(stat);	  
     }
 	
 	public int getVendasEfetuadas(){
