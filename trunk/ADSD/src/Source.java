@@ -11,13 +11,13 @@ public class Source extends Sim_entity {
 
 	private int qteCliente;
 
-	Source(String name, long tempoMaximo, double tempoInterChegada) {
+	public Source(String name, long tempoMaximo, double tempoInterChegada) {
 		super(name);
 		qteCliente = 0;
 		this.tempoMaximo = tempoMaximo;
 		saida = new Sim_port("saidaFonte");
 		add_port(saida);
-		tempo = new Sim_negexp_obj("Atraso", tempoInterChegada, Seed.getPrime());
+		tempo = new Sim_negexp_obj("Atraso", tempoInterChegada, Seed.getPrime());		
 	}
 
 	public int getQteCliente() {
@@ -26,6 +26,8 @@ public class Source extends Sim_entity {
 
 	public void body() {
 		int i = 0;
+		System.out.println("body de source");
+//		System.out.println(Sim_system.clock());
 		while (Sim_system.clock() <= tempoMaximo) {
 //			System.out.println(Sim_system.clock());
 			i++;			

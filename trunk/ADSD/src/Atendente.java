@@ -22,12 +22,12 @@ public class Atendente extends Sim_entity{
 	private double tempoReposicao;
 	private double tempoValidade;
 	final static String STAT_ATENDIMENTOS_EFETUADOS = "Atendimentos efetuados";
-	final static String STAT_QUANTIDADE_NAO_TEM_PRODUTO = "Quantidade n�o tem produto";
+	final static String STAT_QUANTIDADE_NAO_TEM_PRODUTO = "Quantidade nao tem produto";
 	final static String STAT_QUANTIDADE_PRODUTOS_VENCIDOS = "Quantidade produtos vencidos";
 	
-	public Atendente(String name, double tempoAtendimento, double varTempoAtendimento, int qteProduto, double tempoValidade, double tempoReposicao) {		
-      super(name);
-      this.qteProduto = qteProduto;
+	public Atendente(String name, double tempoAtendimento, double varTempoAtendimento, double tempoValidade, double tempoReposicao) {		
+      super(name);      
+//      this.qteProduto = qteProduto;
       this.tempoValidade = tempoValidade;
       this.tempoReposicao = tempoReposicao;
       qtePerdeuValidade = 0;
@@ -55,8 +55,23 @@ public class Atendente extends Sim_entity{
 	  stat.measure_for(new int[] { 0, 1 } );
 		
 	  set_stat(stat);
-	  System.out.println("entrou no construtor");
+	  System.out.println("entrou no construtor");	  
     }
+	
+	private void getQteProduto() {
+		// Lendo do arquivo  
+//		arquivo = new File("arquivo.txt");  
+//		FileInputStream fis = new FileInputStream(arquivo);  
+//		
+//		int ln;  
+//		while ( (ln = fis.read()) != -1 ) {  
+//		System.out.print( (char)ln );  
+//		}  
+//		
+//		fis.close();
+		this.qteProduto = Main.getQteProduto();
+		
+	}
 	
 	
 	public int getQteAtendimentosEfetuados(){
@@ -86,8 +101,9 @@ public class Atendente extends Sim_entity{
 	}
 	
 	public void body(){
-
-		System.out.println("Entrou no body");
+		getQteProduto();
+		
+		System.out.println("qteProduto= " + qteProduto);		
 		
 		int qte = qteProduto;
 //		System.out.println(Sim_system.clock());
@@ -160,5 +176,6 @@ public class Atendente extends Sim_entity{
 		}
 		
 	}
+	
 	
 }

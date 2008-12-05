@@ -8,8 +8,8 @@ public class Simulator {
 	private double paciencia;
 	private int qteProdutos;
 	
-	public Simulator(int qteProdutos){
-		this.qteProdutos = qteProdutos;
+	public Simulator(){
+//		this.qteProdutos = qteProdutos;
 	}
 
 	public double getPaciencia() {
@@ -47,13 +47,13 @@ public class Simulator {
 		// for(int i = 1; i <= qteProdutos; i++){
 		Sim_system.initialise();
 		Source source = new Source("fonte", tempo, tempoInterChegada);
-		Atendente atendente = new Atendente("atendente", mediaAt, varAt, qteProdutos, tempoValidade, tempoReposicao);// TODO
+		Atendente atendente = new Atendente("atendente", mediaAt, varAt, tempoValidade, tempoReposicao);// TODO
 		Caixa caixa = new Caixa("caixa", mediaCx, varCx, this);
 
 		Sim_system.link_ports("fonte", "saidaFonte", "atendente", "chegadaAtendente");
 		Sim_system.link_ports("atendente", "saidaAtendente", "caixa", "chegadaCaixa");
 		Sim_system.set_trace_detail(false, false, false);
-		// Sim_system.set_transient_condition(Sim_system.TIME_ELAPSED, 100);
+		Sim_system.set_transient_condition(Sim_system.TIME_ELAPSED, 100000);
 
 		/*
 		 * Deixar o intervalo de confianca em no maximo 10% Nivel de Confianca
@@ -69,8 +69,17 @@ public class Simulator {
 		 * measure upon which the termination condition is based
 		 */
 //		Sim_system.set_termination_condition(Sim_system.INTERVAL_ACCURACY,
-//				Sim_system.IND_REPLICATIONS, 0.90, 0.02, "atendente",
-//				Sim_stat.THROUGHPUT);
+//				Sim_system.IND_REPLICATIONS, 0.001, 0.02, "atendente",
+//				Atendente.STAT_QUANTIDADE_NAO_TEM_PRODUTO);
+		
+		Sim_system.set_termination_condition(Sim_system.EVENTS_COMPLETED,
+                "fonte", 0, 100, false);
+		
+//		Sim_system.set_termination_condition(Sim_system.TIME_ELAPSED,
+//				40000.00, true);
+		
+//		Sim_system.set_termination_condition(Sim_system.EVENTS_COMPLETED,
+//				"fonte", 1, 10, false);
 
 		Sim_system.set_report_detail(false, false);
 		Sim_system.generate_graphs("supermercado.sjg");
