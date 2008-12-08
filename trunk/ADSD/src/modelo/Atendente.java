@@ -1,3 +1,5 @@
+package modelo;
+import util.Seed;
 import eduni.simjava.Sim_entity;
 import eduni.simjava.Sim_event;
 import eduni.simjava.Sim_port;
@@ -22,12 +24,12 @@ public class Atendente extends Sim_entity{
 	private double tempoReposicao;
 	private double tempoValidade;
 	final static String STAT_ATENDIMENTOS_EFETUADOS = "Atendimentos efetuados";
-	final static String STAT_QUANTIDADE_NAO_TEM_PRODUTO = "Quantidade nao tem produto";
+	final static String STAT_QUANTIDADE_NAO_TEM_PRODUTO = "Quantidade não tem produto";
 	final static String STAT_QUANTIDADE_PRODUTOS_VENCIDOS = "Quantidade produtos vencidos";
 	
-	public Atendente(String name, double tempoAtendimento, double varTempoAtendimento, double tempoValidade, double tempoReposicao) {		
-      super(name);      
-//      this.qteProduto = qteProduto;
+	public Atendente(String name, double tempoAtendimento, double varTempoAtendimento, int qteProduto, double tempoValidade, double tempoReposicao) {		
+      super(name);
+      this.qteProduto = qteProduto;
       this.tempoValidade = tempoValidade;
       this.tempoReposicao = tempoReposicao;
       qtePerdeuValidade = 0;
@@ -55,23 +57,7 @@ public class Atendente extends Sim_entity{
 	  stat.measure_for(new int[] { 0, 1 } );
 		
 	  set_stat(stat);
-	  System.out.println("entrou no construtor");	  
     }
-	
-	private void getQteProduto() {
-		// Lendo do arquivo  
-//		arquivo = new File("arquivo.txt");  
-//		FileInputStream fis = new FileInputStream(arquivo);  
-//		
-//		int ln;  
-//		while ( (ln = fis.read()) != -1 ) {  
-//		System.out.print( (char)ln );  
-//		}  
-//		
-//		fis.close();
-		this.qteProduto = Main.getQteProduto();
-		
-	}
 	
 	
 	public int getQteAtendimentosEfetuados(){
@@ -100,15 +86,11 @@ public class Atendente extends Sim_entity{
 		return produtosVencidos;
 	}
 	
-	public void body(){
-		getQteProduto();
-		
-		System.out.println("qteProduto= " + qteProduto);		
+	public void body(){		
 		
 		int qte = qteProduto;
-//		System.out.println(Sim_system.clock());
 		double dataFabricacao = Sim_system.clock();
-		System.out.println("Quantidade Prod.: "+ qteProduto);		
+		System.out.println("Quantidade Prod.: "+ qte);
 		while(Sim_system.running()){//TODO TA COM FILA INFINITA!!!			
 			Sim_event e = new Sim_event();
 			double tempo;
@@ -176,6 +158,5 @@ public class Atendente extends Sim_entity{
 		}
 		
 	}
-	
 	
 }
