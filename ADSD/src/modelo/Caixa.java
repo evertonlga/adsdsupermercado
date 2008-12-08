@@ -1,3 +1,5 @@
+package modelo;
+import util.Seed;
 import eduni.simjava.Sim_entity;
 import eduni.simjava.Sim_event;
 import eduni.simjava.Sim_port;
@@ -13,14 +15,12 @@ public class Caixa extends Sim_entity{
 	private Sim_normal_obj delay;	
 	private int qteVendasEfetuadas;
 	private int qteVendasPerdidas;
-	private Simulator simulator;
 	final static String STAT_VENDAS_EFETUADAS = "Vendas efetuadas";
 	final static String STAT_VENDAS_PERDIDAS = "Vendas perdidas";
 //	public double tempo_fila = 0.0;
 
-	Caixa(String name, double tempoCaixa, double varTempoCaixa, Simulator simulator) {
+	Caixa(String name, double tempoCaixa, double varTempoCaixa) {
       super(name);
-      this.simulator = simulator;
       qteVendasEfetuadas = 0;
       qteVendasPerdidas = 0;
       delay = new Sim_normal_obj("tempoAtendente",tempoCaixa, varTempoCaixa, Seed.getPrime());//demora 5 minutos em mï¿½dia      
@@ -29,16 +29,16 @@ public class Caixa extends Sim_entity{
       stat = new Sim_stat();
       stat.add_measure(Sim_stat.QUEUE_LENGTH); //tamanho da fila
       stat.add_measure(Sim_stat.ARRIVAL_RATE); //taxa de chegada
-      stat.add_measure(Sim_stat.RESIDENCE_TIME); //tempo de permanï¿½ncia
+      stat.add_measure(Sim_stat.RESIDENCE_TIME); //tempo de permanência
       stat.add_measure(Sim_stat.WAITING_TIME); //tempo de espera
-      stat.add_measure(Sim_stat.SERVICE_TIME); //tempo de serviï¿½o
-      stat.add_measure(Sim_stat.UTILISATION); //taxa de utilizaï¿½ï¿½o
-	  stat.add_measure(Sim_stat.THROUGHPUT); //vazï¿½o do sistema 
+      stat.add_measure(Sim_stat.SERVICE_TIME); //tempo de serviço
+      stat.add_measure(Sim_stat.UTILISATION); //taxa de utilização
+	  stat.add_measure(Sim_stat.THROUGHPUT); //vazão do sistema 
 	  stat.add_measure(STAT_VENDAS_EFETUADAS,Sim_stat.RATE_BASED);
 	  stat.add_measure(STAT_VENDAS_PERDIDAS,Sim_stat.RATE_BASED);
 	  stat.measure_for(new int[] { 0, 1 } );
 		
-	  set_stat(stat);	  
+	  set_stat(stat);
     }
 	
 	public int getVendasEfetuadas(){
@@ -64,7 +64,7 @@ public class Caixa extends Sim_entity{
 				pacienciaPassou = false;
 //				System.out.println(Sim_system.clock() - cliente.doubleValue() < Main.getPaciencia());
 //				System.out.println("Sim_system.running()= " + Sim_system.running() + " last = " + last + "   cliente = " + cliente.doubleValue());
-				if(Sim_system.clock() - cliente.doubleValue() < simulator.getPaciencia()){					
+				if(Sim_system.clock() - cliente.doubleValue() < Main.getPaciencia()){					
 					break;
 				}else if (cliente.doubleValue() != last){
 					qteVendasPerdidas++;
