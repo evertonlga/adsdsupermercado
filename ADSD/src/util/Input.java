@@ -12,9 +12,7 @@ public class Input {
 	private double varAt;
 	private double mediaCx;
 	private double varCx;
-	private int paciencia;
-	
-	
+	private int paciencia;	
 	
 	public Input(int tempo, double tempoInterChegada, int qteProdutos,
 			double tempoValidade, double tempoReposicao, double mediaAt,
