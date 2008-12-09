@@ -117,6 +117,8 @@ public class ParametrosWindow {
 			return false;
 		if(!ehInt(minText.getText()))
 			return false;
+		if(!(Integer.parseInt(maxText.getText()) > Integer.parseInt(minText.getText())))
+			return false;
 		return true;
 	}	
 	
@@ -275,7 +277,7 @@ public class ParametrosWindow {
 							minText.getText(),
 							parametroVariavel);
 				}
-			}			
+			}
 			
 		});	
 		
