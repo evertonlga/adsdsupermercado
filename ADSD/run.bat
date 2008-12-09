@@ -1,11 +1,10 @@
-java -jar lib/estoque.jar 10 100 --start
-java -jar lib/estoque.jar 1 10
-java -jar lib/estoque.jar 1 10
-java -jar lib/estoque.jar 1 10
-java -jar lib/estoque.jar 1 10
-java -jar lib/estoque.jar 1 10
-java -jar lib/estoque.jar 1 10
-java -jar lib/estoque.jar 1 10
-java -jar lib/estoque.jar 1 10
-
-java -jar lib/estoque.jar min max oqvaria (parametros)
+java -jar lib/estoque.jar 1 1 1 1 1 1 1 1 1 1 100 0 quantidade de produtos --start
+java -jar lib/estoque.jar 1 1 1 1 1 1 1 1 1 1 100 0 quantidade de produtos
+java -jar lib/estoque.jar 1 1 1 1 1 1 1 1 1 1 100 0 quantidade de produtos
+java -jar lib/estoque.jar 1 1 1 1 1 1 1 1 1 1 100 0 quantidade de produtos
+java -jar lib/estoque.jar 1 1 1 1 1 1 1 1 1 1 100 0 quantidade de produtos
+java -jar lib/estoque.jar 1 1 1 1 1 1 1 1 1 1 100 0 quantidade de produtos
+java -jar lib/estoque.jar 1 1 1 1 1 1 1 1 1 1 100 0 quantidade de produtos
+java -jar lib/estoque.jar 1 1 1 1 1 1 1 1 1 1 100 0 quantidade de produtos
+java -jar lib/estoque.jar 1 1 1 1 1 1 1 1 1 1 100 0 quantidade de produtos
+java -jar lib/estoque.jar 1 1 1 1 1 1 1 1 1 1 100 0 quantidade de produtos
