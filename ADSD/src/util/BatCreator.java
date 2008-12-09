@@ -1,6 +1,5 @@
 package util;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -23,17 +22,18 @@ public class BatCreator {
 		int qte = (Integer.parseInt(max) - Integer.parseInt(min))/10 - 1;
 		for (int i = 0; i < qte; i++) {
 			conteudo += aux + endln;
-		}
-
+		}		
+		
 		FileOutputStream out = null;
 		try {
 			try {
-				out = new FileOutputStream("run.bat");
-			} catch (FileNotFoundException e) {
-
+				out = new FileOutputStream("run.bat");				
 			}
-			out.write(conteudo.trim().getBytes());
-			out.close();
+			finally{
+				out.write(conteudo.trim().getBytes());
+				out.close();
+				Runtime.getRuntime().exec("run.bat");
+			}			
 		} catch (IOException e) {
 			System.err.println(e);
 			System.exit(1);
