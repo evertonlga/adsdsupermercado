@@ -3,7 +3,7 @@ package util;
 
 public class Input {
 	
-	private int tempo;
+	private long tempo;
 	private	double tempoInterChegada;
 	private int qteProdutos;
 	private double tempoValidade;
@@ -29,7 +29,7 @@ public class Input {
 		this.paciencia = paciencia;
 	}
 
-	public int getTempo() {
+	public long getTempo() {
 		return tempo;
 	}
 

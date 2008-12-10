@@ -272,9 +272,9 @@ public class ParametrosWindow {
 							varAtText.getText(),
 							mediaCxText.getText(),
 							varCxText.getText(),
-							pacienciaText.getText(),
-							maxText.getText(),
+							pacienciaText.getText(),							
 							minText.getText(),
+							maxText.getText(),
 							parametroVariavel);
 				}
 			}

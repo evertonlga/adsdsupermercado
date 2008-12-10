@@ -21,26 +21,62 @@ public class Main {
 	public static double getPaciencia(){
 		return paciencia;
 	}
-				
-	public static void main(String[] args) {		
-		if(args.length > 2){
-			gerarInput(args[0], args[1]);
+
+	/*String tempo, String tempoInterChegada,
+	String qteProdutos, String tempoValidade, String tempoReposicao,
+	String mediaAt, String varAt, String mediaCx, String varCx,
+	String paciencia, String min, String max, String parametroVariavel*/
+	
+	public static void main(String[] args) throws InterruptedException {
+		if (args.length > 13) {
+			gerarInput(args[0], args[1], args[2], args[3], args[4], args[5],
+					args[6], args[7], args[8], args[9], args[10], args[11],
+					args[12]);
 			run(true);
-		}
-		else{
+		} else {
 			run(false);
-		}	
-		
+		}
+
 	}
 	
-	private static void gerarInput(String minSTR, String maxSTR) {
+	/*
+	double tempoValidade, double tempoReposicao, double mediaAt,
+	double varAt, double mediaCx, double varCx, int paciencia) {
+	"quantidade de produtos";
+		if(interchegadaCheck.getSelection())
+			return "tempo de interchegada";		
+		return "tempo de vencimento";	
+	*/
+	
+	private static void gerarInput(String tempoSTR, String tempoInterChegadaSTR,
+			String qteProdutosSTR, String tempoValidadeSTR, String tempoReposicaoSTR,
+			String mediaAtSTR, String varAtSTR, String mediaCxSTR, String varCxSTR,
+			String pacienciaSTR, String minSTR, String maxSTR, String parametroVariavel) {
+		long tempo = Long.parseLong(tempoSTR);
+		double tempoInterChegada = Double.parseDouble(tempoInterChegadaSTR);
+		int qteProdutos = Integer.parseInt(qteProdutosSTR);
+		double tempoValidade = Double.parseDouble(tempoValidadeSTR);
+		double tempoReposicao = Double.parseDouble(tempoReposicaoSTR);
+		double mediaAt = Double.parseDouble(mediaAtSTR);
+		double varAt = Double.parseDouble(varAtSTR);
+		double mediaCx = Double.parseDouble(mediaCxSTR);
+		double varCx = Double.parseDouble(varCxSTR);
+		int paciencia = Integer.parseInt(pacienciaSTR);
 		int min = Integer.parseInt(minSTR);
 		int max = Integer.parseInt(maxSTR);
 		List<Input> inputs = new ArrayList<Input>();
-		for(int i = min; i <= max; i = i + 10){
-			System.out.println();
-			inputs.add(new Input(10000, 5, i, 500, 50, 5, 1, 5, 1, 10));
+		if(parametroVariavel.equals("quantidade de produtos")){
+			for(int i = min; i <= max; i = i + 10){			
+//				inputs.add(new Input(tempo, tempoInterChegada, i, tempoValidade, tempoReposicao, mediaAt, varAt, mediaCx, varCx, paciencia));
+			}
 		}
+		else if(parametroVariavel.equals("tempo de interchegada")){
+			
+		}
+		else{
+			
+		}
+		
 		salvarEmXML(inputs);
 		
 	}
