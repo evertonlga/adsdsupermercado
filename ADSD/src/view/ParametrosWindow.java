@@ -86,7 +86,7 @@ public class ParametrosWindow {
 			return "quantidade de produtos";
 		if(interchegadaCheck.getSelection())
 			return "tempo de interchegada";		
-		return "tempo de vencimento";
+		return "tempo de validade";
 	}
 	
 	private static boolean tudoOK() {
