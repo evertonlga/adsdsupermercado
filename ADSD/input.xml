@@ -1,5 +1,5 @@
 <list>
-  <Input>
+  <util.Input>
     <tempo>10000</tempo>
     <tempoInterChegada>5.0</tempoInterChegada>
     <qteProdutos>1</qteProdutos>
@@ -10,5 +10,5 @@
     <mediaCx>5.0</mediaCx>
     <varCx>1.0</varCx>
     <paciencia>10</paciencia>
-  </Input>
+  </util.Input>
 </list>
