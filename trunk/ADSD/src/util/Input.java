@@ -14,7 +14,7 @@ public class Input {
 	private double varCx;
 	private int paciencia;	
 	
-	public Input(int tempo, double tempoInterChegada, int qteProdutos,
+	public Input(long tempo, double tempoInterChegada, int qteProdutos,
 			double tempoValidade, double tempoReposicao, double mediaAt,
 			double varAt, double mediaCx, double varCx, int paciencia) {		
 		this.tempo = tempo;
