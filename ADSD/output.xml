@@ -1,6 +1,38 @@
 <list>
   <util.Output>
-    <qteProdutosPerdidos>1864</qteProdutosPerdidos>
+    <qteProdutosPerdidos>1726</qteProdutosPerdidos>
     <numeroOutput>0</numeroOutput>
+  </util.Output>
+  <util.Output>
+    <qteProdutosPerdidos>1593</qteProdutosPerdidos>
+    <numeroOutput>1</numeroOutput>
+  </util.Output>
+  <util.Output>
+    <qteProdutosPerdidos>1439</qteProdutosPerdidos>
+    <numeroOutput>2</numeroOutput>
+  </util.Output>
+  <util.Output>
+    <qteProdutosPerdidos>1342</qteProdutosPerdidos>
+    <numeroOutput>3</numeroOutput>
+  </util.Output>
+  <util.Output>
+    <qteProdutosPerdidos>1241</qteProdutosPerdidos>
+    <numeroOutput>4</numeroOutput>
+  </util.Output>
+  <util.Output>
+    <qteProdutosPerdidos>1206</qteProdutosPerdidos>
+    <numeroOutput>5</numeroOutput>
+  </util.Output>
+  <util.Output>
+    <qteProdutosPerdidos>1099</qteProdutosPerdidos>
+    <numeroOutput>6</numeroOutput>
+  </util.Output>
+  <util.Output>
+    <qteProdutosPerdidos>1025</qteProdutosPerdidos>
+    <numeroOutput>7</numeroOutput>
+  </util.Output>
+  <util.Output>
+    <qteProdutosPerdidos>956</qteProdutosPerdidos>
+    <numeroOutput>8</numeroOutput>
   </util.Output>
 </list>
