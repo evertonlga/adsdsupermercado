@@ -65,14 +65,14 @@ public class Main {
 		int min = Integer.parseInt(minSTR);
 		int max = Integer.parseInt(maxSTR);
 		List<Input> inputs = new ArrayList<Input>();
-		if(parametroVariavel.equals("qteProdutos")){
+		if(parametroVariavel.equals("qteDeProdutos")){
 			for(int i = min; i <= max; i = i + 10){			
 				inputs.add(new Input(tempo, tempoInterChegada, i,
 						tempoValidade, tempoReposicao, mediaAt, varAt, mediaCx,
 						varCx, paciencia));
 			}
 		}
-		else if(parametroVariavel.equals("interchegada")){
+		else if(parametroVariavel.equals("tempoDeInterchegada")){
 			for(int i = min; i <= max; i = i + 10){			
 				inputs.add(new Input(tempo, i, qteProdutos,
 						tempoValidade, tempoReposicao, mediaAt, varAt, mediaCx,

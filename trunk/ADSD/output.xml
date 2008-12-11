@@ -1,6 +1,10 @@
 <list>
   <util.Output>
+<<<<<<< .mine
+    <qteProdutosPerdidos>2</qteProdutosPerdidos>
+=======
     <qteProdutosPerdidos>1726</qteProdutosPerdidos>
+>>>>>>> .r53
     <numeroOutput>0</numeroOutput>
   </util.Output>
   <util.Output>
