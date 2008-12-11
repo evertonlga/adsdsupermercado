@@ -83,10 +83,10 @@ public class ParametrosWindow {
 	
 	private static String getParametroVariavelEscolhido(){
 		if(qteProdutosCheck.getSelection())
-			return "quantidade de produtos";
+			return "qteProdutos";
 		if(interchegadaCheck.getSelection())
-			return "tempo de interchegada";		
-		return "tempo de validade";
+			return "interchegada";		
+		return "validade";
 	}
 	
 	private static boolean tudoOK() {
