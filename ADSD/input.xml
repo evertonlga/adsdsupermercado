@@ -1,5 +1,16 @@
 <list>
   <util.Input>
+<<<<<<< .mine
+    <tempo>1</tempo>
+    <tempoInterChegada>2.0</tempoInterChegada>
+    <qteProdutos>0</qteProdutos>
+    <tempoValidade>4.0</tempoValidade>
+    <tempoReposicao>5.0</tempoReposicao>
+    <mediaAt>6.0</mediaAt>
+    <varAt>7.0</varAt>
+    <mediaCx>8.0</mediaCx>
+    <varCx>9.0</varCx>
+=======
     <tempo>10000</tempo>
     <tempoInterChegada>5.0</tempoInterChegada>
     <qteProdutos>100</qteProdutos>
@@ -9,8 +20,131 @@
     <varAt>1.0</varAt>
     <mediaCx>5.0</mediaCx>
     <varCx>1.0</varCx>
+>>>>>>> .r53
     <paciencia>10</paciencia>
   </util.Input>
+<<<<<<< .mine
+  <util.Input>
+    <tempo>1</tempo>
+    <tempoInterChegada>2.0</tempoInterChegada>
+    <qteProdutos>10</qteProdutos>
+    <tempoValidade>4.0</tempoValidade>
+    <tempoReposicao>5.0</tempoReposicao>
+    <mediaAt>6.0</mediaAt>
+    <varAt>7.0</varAt>
+    <mediaCx>8.0</mediaCx>
+    <varCx>9.0</varCx>
+    <paciencia>10</paciencia>
+  </util.Input>
+  <util.Input>
+    <tempo>1</tempo>
+    <tempoInterChegada>2.0</tempoInterChegada>
+    <qteProdutos>20</qteProdutos>
+    <tempoValidade>4.0</tempoValidade>
+    <tempoReposicao>5.0</tempoReposicao>
+    <mediaAt>6.0</mediaAt>
+    <varAt>7.0</varAt>
+    <mediaCx>8.0</mediaCx>
+    <varCx>9.0</varCx>
+    <paciencia>10</paciencia>
+  </util.Input>
+  <util.Input>
+    <tempo>1</tempo>
+    <tempoInterChegada>2.0</tempoInterChegada>
+    <qteProdutos>30</qteProdutos>
+    <tempoValidade>4.0</tempoValidade>
+    <tempoReposicao>5.0</tempoReposicao>
+    <mediaAt>6.0</mediaAt>
+    <varAt>7.0</varAt>
+    <mediaCx>8.0</mediaCx>
+    <varCx>9.0</varCx>
+    <paciencia>10</paciencia>
+  </util.Input>
+  <util.Input>
+    <tempo>1</tempo>
+    <tempoInterChegada>2.0</tempoInterChegada>
+    <qteProdutos>40</qteProdutos>
+    <tempoValidade>4.0</tempoValidade>
+    <tempoReposicao>5.0</tempoReposicao>
+    <mediaAt>6.0</mediaAt>
+    <varAt>7.0</varAt>
+    <mediaCx>8.0</mediaCx>
+    <varCx>9.0</varCx>
+    <paciencia>10</paciencia>
+  </util.Input>
+  <util.Input>
+    <tempo>1</tempo>
+    <tempoInterChegada>2.0</tempoInterChegada>
+    <qteProdutos>50</qteProdutos>
+    <tempoValidade>4.0</tempoValidade>
+    <tempoReposicao>5.0</tempoReposicao>
+    <mediaAt>6.0</mediaAt>
+    <varAt>7.0</varAt>
+    <mediaCx>8.0</mediaCx>
+    <varCx>9.0</varCx>
+    <paciencia>10</paciencia>
+  </util.Input>
+  <util.Input>
+    <tempo>1</tempo>
+    <tempoInterChegada>2.0</tempoInterChegada>
+    <qteProdutos>60</qteProdutos>
+    <tempoValidade>4.0</tempoValidade>
+    <tempoReposicao>5.0</tempoReposicao>
+    <mediaAt>6.0</mediaAt>
+    <varAt>7.0</varAt>
+    <mediaCx>8.0</mediaCx>
+    <varCx>9.0</varCx>
+    <paciencia>10</paciencia>
+  </util.Input>
+  <util.Input>
+    <tempo>1</tempo>
+    <tempoInterChegada>2.0</tempoInterChegada>
+    <qteProdutos>70</qteProdutos>
+    <tempoValidade>4.0</tempoValidade>
+    <tempoReposicao>5.0</tempoReposicao>
+    <mediaAt>6.0</mediaAt>
+    <varAt>7.0</varAt>
+    <mediaCx>8.0</mediaCx>
+    <varCx>9.0</varCx>
+    <paciencia>10</paciencia>
+  </util.Input>
+  <util.Input>
+    <tempo>1</tempo>
+    <tempoInterChegada>2.0</tempoInterChegada>
+    <qteProdutos>80</qteProdutos>
+    <tempoValidade>4.0</tempoValidade>
+    <tempoReposicao>5.0</tempoReposicao>
+    <mediaAt>6.0</mediaAt>
+    <varAt>7.0</varAt>
+    <mediaCx>8.0</mediaCx>
+    <varCx>9.0</varCx>
+    <paciencia>10</paciencia>
+  </util.Input>
+  <util.Input>
+    <tempo>1</tempo>
+    <tempoInterChegada>2.0</tempoInterChegada>
+    <qteProdutos>90</qteProdutos>
+    <tempoValidade>4.0</tempoValidade>
+    <tempoReposicao>5.0</tempoReposicao>
+    <mediaAt>6.0</mediaAt>
+    <varAt>7.0</varAt>
+    <mediaCx>8.0</mediaCx>
+    <varCx>9.0</varCx>
+    <paciencia>10</paciencia>
+  </util.Input>
+  <util.Input>
+    <tempo>1</tempo>
+    <tempoInterChegada>2.0</tempoInterChegada>
+    <qteProdutos>100</qteProdutos>
+    <tempoValidade>4.0</tempoValidade>
+    <tempoReposicao>5.0</tempoReposicao>
+    <mediaAt>6.0</mediaAt>
+    <varAt>7.0</varAt>
+    <mediaCx>8.0</mediaCx>
+    <varCx>9.0</varCx>
+    <paciencia>10</paciencia>
+  </util.Input>
+=======
   <util.Input>
     <tempo>10000</tempo>
     <tempoInterChegada>5.0</tempoInterChegada>
@@ -119,4 +253,5 @@
     <varCx>1.0</varCx>
     <paciencia>10</paciencia>
   </util.Input>
+>>>>>>> .r53
 </list>
