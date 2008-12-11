@@ -22,7 +22,8 @@ public class BatCreator {
 		int qte = (Integer.parseInt(max) - Integer.parseInt(min))/10 - 1;
 		for (int i = 0; i < qte; i++) {
 			conteudo += aux + endln;
-		}		
+		}
+		conteudo += "java -jar lib/grafico.jar " + parametroVariavel;
 		
 		FileOutputStream out = null;
 		try {

@@ -8,6 +8,7 @@ import eduni.simjava.distributions.Sim_negexp_obj;
 public class Source extends Sim_entity {
 
 	private Sim_port saida;
+	private double tempoInterChegada;
 	private Sim_negexp_obj tempo;
 	private long tempoMaximo;
 
@@ -15,6 +16,7 @@ public class Source extends Sim_entity {
 
 	Source(String name, long tempoMaximo, double tempoInterChegada) {
 		super(name);
+		this.tempoInterChegada = tempoInterChegada;
 		qteCliente = 0;
 		this.tempoMaximo = tempoMaximo;
 		saida = new Sim_port("saidaFonte");
@@ -24,6 +26,10 @@ public class Source extends Sim_entity {
 
 	public int getQteCliente() {
 		return qteCliente;
+	}
+	
+	public double getTempoInterChegada() {
+		return tempoInterChegada;
 	}
 
 	public void body() {

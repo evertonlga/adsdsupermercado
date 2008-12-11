@@ -86,6 +86,18 @@ public class Atendente extends Sim_entity{
 		return produtosVencidos;
 	}
 	
+	public int getQteProduto() {
+		return qteProduto;
+	}	
+
+	public double getTempoValidade() {
+		return tempoValidade;
+	}
+
+	public void setQteProduto(int qteProduto) {
+		this.qteProduto = qteProduto;
+	}
+	
 	public void body(){		
 		
 		int qte = qteProduto;

@@ -12,8 +12,8 @@ import com.thoughtworks.xstream.XStream;
 public class Parser {
 
 	private XStream xstream;
-	private static final String XML_IN = "input.xml";
-	private static final String XML_OUT = "output.xml";
+	private static final String XML_IN = Util.INPUT;
+	private static final String XML_OUT = Util.OUTPUT;
 	private int numeroDoInput;
 
 	public Parser(boolean comeco) {

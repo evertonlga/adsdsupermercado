@@ -2,11 +2,20 @@ package util;
 
 public class Output {
 	
-	private int qteProdutosPerdidos;
+	private double parametroVariavel;
+	private int qteProdutosPerdidos;	
 	private int numeroOutput;
 	
 	public Output(){
 		
+	}
+	
+	public double getParametroVariavel() {
+		return parametroVariavel;
+	}
+
+	public void setParametroVariavel(double parametroVariavel) {
+		this.parametroVariavel = parametroVariavel;
 	}
 	
 	public int getQteProdutosPerdidos() {
@@ -23,7 +32,6 @@ public class Output {
 
 	public void setNumeroOutput(int numeroOutput) {
 		this.numeroOutput = numeroOutput;
-	}
-
+	}	
 	
 }
