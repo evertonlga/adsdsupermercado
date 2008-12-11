@@ -83,13 +83,13 @@ public class XMLProcessor {
 	private static Point getPoint(ArrayList<Element> netos) {
 		
 		Point point = new Point(0,0);
-		int ponto;
+		double ponto;
 		for (int i = 0; i < netos.size(); i++) {
-			ponto = Integer.valueOf(netos.get(i).getValue());
+			ponto = Double.valueOf(netos.get(i).getValue());
 			if(i == 0){
 				point.setX(ponto);
 			}
-			else{
+			else if(i == 1){
 				point.setY(ponto);
 			}
 		}

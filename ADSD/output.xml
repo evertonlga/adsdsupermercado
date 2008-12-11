@@ -1,42 +1,52 @@
 <list>
   <util.Output>
-<<<<<<< .mine
-    <qteProdutosPerdidos>2</qteProdutosPerdidos>
-=======
-    <qteProdutosPerdidos>1726</qteProdutosPerdidos>
->>>>>>> .r53
+    <parametroVariavel>5000.0</parametroVariavel>
+    <qteProdutosPerdidos>0</qteProdutosPerdidos>
     <numeroOutput>0</numeroOutput>
   </util.Output>
   <util.Output>
-    <qteProdutosPerdidos>1593</qteProdutosPerdidos>
+    <parametroVariavel>5010.0</parametroVariavel>
+    <qteProdutosPerdidos>0</qteProdutosPerdidos>
     <numeroOutput>1</numeroOutput>
   </util.Output>
   <util.Output>
-    <qteProdutosPerdidos>1439</qteProdutosPerdidos>
+    <parametroVariavel>5020.0</parametroVariavel>
+    <qteProdutosPerdidos>0</qteProdutosPerdidos>
     <numeroOutput>2</numeroOutput>
   </util.Output>
   <util.Output>
-    <qteProdutosPerdidos>1342</qteProdutosPerdidos>
+    <parametroVariavel>5030.0</parametroVariavel>
+    <qteProdutosPerdidos>0</qteProdutosPerdidos>
     <numeroOutput>3</numeroOutput>
   </util.Output>
   <util.Output>
-    <qteProdutosPerdidos>1241</qteProdutosPerdidos>
+    <parametroVariavel>5040.0</parametroVariavel>
+    <qteProdutosPerdidos>0</qteProdutosPerdidos>
     <numeroOutput>4</numeroOutput>
   </util.Output>
   <util.Output>
-    <qteProdutosPerdidos>1206</qteProdutosPerdidos>
+    <parametroVariavel>5050.0</parametroVariavel>
+    <qteProdutosPerdidos>0</qteProdutosPerdidos>
     <numeroOutput>5</numeroOutput>
   </util.Output>
   <util.Output>
-    <qteProdutosPerdidos>1099</qteProdutosPerdidos>
+    <parametroVariavel>5060.0</parametroVariavel>
+    <qteProdutosPerdidos>0</qteProdutosPerdidos>
     <numeroOutput>6</numeroOutput>
   </util.Output>
   <util.Output>
-    <qteProdutosPerdidos>1025</qteProdutosPerdidos>
+    <parametroVariavel>5070.0</parametroVariavel>
+    <qteProdutosPerdidos>0</qteProdutosPerdidos>
     <numeroOutput>7</numeroOutput>
   </util.Output>
   <util.Output>
-    <qteProdutosPerdidos>956</qteProdutosPerdidos>
+    <parametroVariavel>5080.0</parametroVariavel>
+    <qteProdutosPerdidos>0</qteProdutosPerdidos>
     <numeroOutput>8</numeroOutput>
+  </util.Output>
+  <util.Output>
+    <parametroVariavel>5090.0</parametroVariavel>
+    <qteProdutosPerdidos>0</qteProdutosPerdidos>
+    <numeroOutput>9</numeroOutput>
   </util.Output>
 </list>

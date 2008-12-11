@@ -17,10 +17,8 @@ public class JanelaComGrafico extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		String xName  = args[0];
-		String yName  = args[1];
-//		xName  = "QtdeProcutos";
-//		yName  = "Perdas";
+		xName  = args[0];
+		yName  = "Perdas";
 		JanelaComGrafico janela = new JanelaComGrafico();
 		janela.show();
 	}

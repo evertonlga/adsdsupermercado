@@ -1,15 +1,10 @@
 package util;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.time.Month;
-import org.jfree.data.time.TimeSeries;
-import org.jfree.data.time.TimeSeriesCollection;
-import org.jfree.data.xy.DefaultXYDataset;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
@@ -42,7 +37,7 @@ public class GeraGrafico {
 		  
 		  XYSeries serie = new XYSeries("");
 		  for (Point p : points){
-			  serie.add(p.getY(), p.getX());
+			  serie.add(p.getX(), p.getY());
 		  }
 //		  List<Integer> pontos = new ArrayList<Integer>();
 //		  	pontos.add(15);

@@ -17,6 +17,7 @@ public class Main {
 	
 	private static double paciencia;
 	private final static String XML_INPUT = "input.xml";
+	private static String parametroVariavel;
 	
 	public static double getPaciencia(){
 		return paciencia;
@@ -28,6 +29,7 @@ public class Main {
 	String paciencia, String min, String max, String parametroVariavel*/
 	
 	public static void main(String[] args) throws InterruptedException {
+		parametroVariavel = args[12];
 		if (args.length > 13) {
 			gerarInput(args[0], args[1], args[2], args[3], args[4], args[5],
 					args[6], args[7], args[8], args[9], args[10], args[11],
@@ -66,7 +68,7 @@ public class Main {
 		int max = Integer.parseInt(maxSTR);
 		List<Input> inputs = new ArrayList<Input>();
 		if(parametroVariavel.equals("qteDeProdutos")){
-			for(int i = min; i <= max; i = i + 10){			
+			for(int i = min; i <= max; i = i + 10){
 				inputs.add(new Input(tempo, tempoInterChegada, i,
 						tempoValidade, tempoReposicao, mediaAt, varAt, mediaCx,
 						varCx, paciencia));
@@ -139,8 +141,19 @@ public class Main {
 		
 		Sim_system.run();
 		Output out = new Output();
+		
+		if(parametroVariavel.equals("qteDeProdutos")){			
+			out.setParametroVariavel(atendente.getQteProduto());
+		}
+		else if(parametroVariavel.equals("tempoDeInterchegada")){
+			out.setParametroVariavel(source.getTempoInterChegada());
+		}
+		else{
+			out.setParametroVariavel(atendente.getTempoValidade());
+		}
 		out.setQteNaoTemProduto(atendente.getNaoTemProduto() + atendente.getPerdasPorValidade());
 		p.salvarOutput(out);
+		
 //		System.out.println();
 //		System.out.println("===> Source <===");
 //		System.out.println("cliente = " + source.getQteCliente());
