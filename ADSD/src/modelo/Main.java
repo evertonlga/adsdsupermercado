@@ -30,30 +30,22 @@ public class Main {
 	
 	public static void main(String[] args) throws InterruptedException {
 		parametroVariavel = args[12];
-		if (args.length > 13) {
+		if (args.length > 14) {
 			gerarInput(args[0], args[1], args[2], args[3], args[4], args[5],
 					args[6], args[7], args[8], args[9], args[10], args[11],
-					args[12]);
+					args[12], args[13]);
 			run(true);
 		} else {
 			run(false);
 		}
 
-	}
-	
-	/*
-	double tempoValidade, double tempoReposicao, double mediaAt,
-	double varAt, double mediaCx, double varCx, int paciencia) {
-	"quantidade de produtos";
-		if(interchegadaCheck.getSelection())
-			return "tempo de interchegada";		
-		return "tempo de vencimento";	
-	*/
+	}	
 	
 	private static void gerarInput(String tempoSTR, String tempoInterChegadaSTR,
 			String qteProdutosSTR, String tempoValidadeSTR, String tempoReposicaoSTR,
 			String mediaAtSTR, String varAtSTR, String mediaCxSTR, String varCxSTR,
-			String pacienciaSTR, String minSTR, String maxSTR, String parametroVariavel) {
+			String pacienciaSTR, String minSTR, String maxSTR, String parametroVariavel,
+			String saltoSTR) {
 		long tempo = Long.parseLong(tempoSTR);
 		double tempoInterChegada = Double.parseDouble(tempoInterChegadaSTR);
 		int qteProdutos = Integer.parseInt(qteProdutosSTR);
@@ -64,27 +56,37 @@ public class Main {
 		double mediaCx = Double.parseDouble(mediaCxSTR);
 		double varCx = Double.parseDouble(varCxSTR);
 		int paciencia = Integer.parseInt(pacienciaSTR);
-		int min = Integer.parseInt(minSTR);
-		int max = Integer.parseInt(maxSTR);
+		double min = Double.parseDouble(minSTR);
+		double max = Double.parseDouble(maxSTR);
+		int salto = Integer.parseInt(saltoSTR);
 		List<Input> inputs = new ArrayList<Input>();
 		if(parametroVariavel.equals("qteDeProdutos")){
-			for(int i = min; i <= max; i = i + 10){
+			int minInt = Integer.parseInt(minSTR);
+			int maxInt = Integer.parseInt(maxSTR);
+			for(int i = minInt; i <= maxInt; i = i + salto){
 				inputs.add(new Input(tempo, tempoInterChegada, i,
 						tempoValidade, tempoReposicao, mediaAt, varAt, mediaCx,
 						varCx, paciencia));
 			}
 		}
 		else if(parametroVariavel.equals("tempoDeInterchegada")){
-			for(int i = min; i <= max; i = i + 10){			
+			for(double i = min; i <= max; i = i + salto){			
 				inputs.add(new Input(tempo, i, qteProdutos,
 						tempoValidade, tempoReposicao, mediaAt, varAt, mediaCx,
 						varCx, paciencia));
 			}
 		}
-		else{
-			for(int i = min; i <= max; i = i + 10){			
+		else if(parametroVariavel.equals("tempoDeValidade")){
+			for(double i = min; i <= max; i = i + salto){			
 				inputs.add(new Input(tempo, tempoInterChegada, qteProdutos,
 						i, tempoReposicao, mediaAt, varAt, mediaCx,
+						varCx, paciencia));
+			}
+		}
+		else{			
+			for(double i = min; i <= max; i = i + salto){			
+				inputs.add(new Input(tempo, tempoInterChegada, qteProdutos,
+						tempoValidade, tempoReposicao, mediaAt, varAt, i,
 						varCx, paciencia));
 			}
 		}
@@ -108,34 +110,15 @@ public class Main {
 		Parser p = new Parser(comeco);
 		Input i = p.getInput();
 		
-		Sim_system.initialise();
-		@SuppressWarnings("unused")
+		Sim_system.initialise();		
 		Source source = new Source("fonte", i.getTempo(), i.getTempoInterChegada());
-		Atendente atendente = new Atendente("atendente", i.getMediaAt(), i.getVarAt(), i.getQteProdutos(), i.getTempoValidade(), i.getTempoReposicao()); 
-		@SuppressWarnings("unused")
+		Atendente atendente = new Atendente("atendente", i.getMediaAt(), i.getVarAt(), i.getQteProdutos(), i.getTempoValidade(), i.getTempoReposicao());		
 		Caixa caixa = new Caixa("caixa", i.getMediaCx(), i.getVarCx());
 		
 		Sim_system.link_ports("fonte", "saidaFonte", "atendente", "chegadaAtendente");
 		Sim_system.link_ports("atendente", "saidaAtendente", "caixa", "chegadaCaixa");		
 		Sim_system.set_trace_detail(false, false, false);
-//		Sim_system.set_transient_condition(Sim_system.TIME_ELAPSED, 100);
-		
-		
-		/*
-		 * Deixar o intervalo de confianca em no maximo 10%
-		 * Nivel de Confianca de 90%
-		 *
-		 *     type - The termination condition type. This must be set to INTERVAL_ACCURACY.
-		 *     output_analysis_type - The output analysis method to be used as a variance reduction technique
-		 *     level - The confidence level for which the confidence interval will be calculated
-		 *     accuracy - The accuracy that is required to satisfy the termination condition
-		 *     entity - The name of the entity that contains the measure upon which the termination condition is based
-		 *     measure - The name of the custom measure upon which the termination condition is based
-		 */
-//		Sim_system.set_termination_condition(Sim_system.INTERVAL_ACCURACY, 
-//				Sim_system.IND_REPLICATIONS, 0.90, 0.02, "caixa", 
-//				Sim_stat.THROUGHPUT);
-		
+
 		Sim_system.set_report_detail(false, false);
 		Sim_system.generate_graphs("supermercado.sjg");
 		
@@ -148,10 +131,19 @@ public class Main {
 		else if(parametroVariavel.equals("tempoDeInterchegada")){
 			out.setParametroVariavel(source.getTempoInterChegada());
 		}
-		else{
+		else if(parametroVariavel.equals("tempoDeValidade")){
 			out.setParametroVariavel(atendente.getTempoValidade());
 		}
-		out.setQteNaoTemProduto(atendente.getNaoTemProduto() + atendente.getPerdasPorValidade());
+		else{
+			out.setParametroVariavel(caixa.getTempoCaixa());
+		}
+		
+		if(parametroVariavel.equals("mediaCaixa")){
+			out.setQtePerdas(caixa.getVendasPerdidas());
+		}
+		else{
+			out.setQtePerdas(atendente.getNaoTemProduto() + atendente.getPerdasPorValidade());
+		}		
 		p.salvarOutput(out);
 		
 //		System.out.println();
