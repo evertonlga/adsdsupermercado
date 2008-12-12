@@ -1,11 +1,11 @@
-java -jar lib/estoque.jar 100 5 100 50000 50 5 1 5 1 10 5000 5100 qteDeProdutos --start
-java -jar lib/estoque.jar 100 5 100 50000 50 5 1 5 1 10 5000 5100 qteDeProdutos
-java -jar lib/estoque.jar 100 5 100 50000 50 5 1 5 1 10 5000 5100 qteDeProdutos
-java -jar lib/estoque.jar 100 5 100 50000 50 5 1 5 1 10 5000 5100 qteDeProdutos
-java -jar lib/estoque.jar 100 5 100 50000 50 5 1 5 1 10 5000 5100 qteDeProdutos
-java -jar lib/estoque.jar 100 5 100 50000 50 5 1 5 1 10 5000 5100 qteDeProdutos
-java -jar lib/estoque.jar 100 5 100 50000 50 5 1 5 1 10 5000 5100 qteDeProdutos
-java -jar lib/estoque.jar 100 5 100 50000 50 5 1 5 1 10 5000 5100 qteDeProdutos
-java -jar lib/estoque.jar 100 5 100 50000 50 5 1 5 1 10 5000 5100 qteDeProdutos
-java -jar lib/estoque.jar 100 5 100 50000 50 5 1 5 1 10 5000 5100 qteDeProdutos
-java -jar lib/grafico.jar qteDeProdutos
+java -jar lib/estoque.jar 10000 5 100 500 50 5 1 0 1 10 1 10 mediaCaixa 1 --start
+java -jar lib/estoque.jar 10000 5 100 500 50 5 1 0 1 10 1 10 mediaCaixa 1
+java -jar lib/estoque.jar 10000 5 100 500 50 5 1 0 1 10 1 10 mediaCaixa 1
+java -jar lib/estoque.jar 10000 5 100 500 50 5 1 0 1 10 1 10 mediaCaixa 1
+java -jar lib/estoque.jar 10000 5 100 500 50 5 1 0 1 10 1 10 mediaCaixa 1
+java -jar lib/estoque.jar 10000 5 100 500 50 5 1 0 1 10 1 10 mediaCaixa 1
+java -jar lib/estoque.jar 10000 5 100 500 50 5 1 0 1 10 1 10 mediaCaixa 1
+java -jar lib/estoque.jar 10000 5 100 500 50 5 1 0 1 10 1 10 mediaCaixa 1
+java -jar lib/estoque.jar 10000 5 100 500 50 5 1 0 1 10 1 10 mediaCaixa 1
+java -jar lib/estoque.jar 10000 5 100 500 50 5 1 0 1 10 1 10 mediaCaixa 1
+java -jar lib/grafico.jar mediaCaixa
