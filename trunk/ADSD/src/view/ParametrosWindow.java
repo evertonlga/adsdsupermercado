@@ -45,14 +45,16 @@ public class ParametrosWindow {
 	private static Text pacienciaText;	
 	private static Button qteProdutosCheck;			
 	private static Button interchegadaCheck;
-	private static Button tempoVencimentoCheck;	
+	private static Button tempoValidadeCheck;
+	private static Button mediaCxCheck;
 	
-	private static Label minLabel;
-	
+	private static boolean allDisabled;	
+	private static Label minLabel;	
 	private static Text minText;
 	private static Label maxLabel;
-	
 	private static Text maxText;
+	private static Label saltoLabel;
+	private static Text saltoText;
 
 	public static void main(String[] args) {
 		display = new Display();
@@ -85,30 +87,32 @@ public class ParametrosWindow {
 		if(qteProdutosCheck.getSelection())
 			return "qteDeProdutos";
 		if(interchegadaCheck.getSelection())
-			return "tempoDeInterchegada";		
+			return "tempoDeInterchegada";
+		if(mediaCxCheck.getSelection())
+			return "mediaCaixa";
 		return "tempoDeValidade";
 	}
 	
 	private static boolean tudoOK() {
 		if(!(qteProdutosCheck.getSelection() || interchegadaCheck.getSelection() || 
-				tempoVencimentoCheck.getSelection()))
+				tempoValidadeCheck.getSelection() || mediaCxCheck.getSelection()))
 			return false;
 		if(!ehDouble(tempoText.getText()))
 			return false;
-		if(!ehDouble(tempoInterChegadaText.getText()))
-			return false;
-		if(!ehInt(qteProdutosText.getText()))
-			return false;
-		if(!ehDouble(tempoValidadeText.getText()))
-			return false;
+//		if(!ehDouble(tempoInterChegadaText.getText()))
+//			return false;
+//		if(!ehInt(qteProdutosText.getText()))
+//			return false;
+//		if(!ehDouble(tempoValidadeText.getText()))
+//			return false;
 		if(!ehDouble(tempoReposicaoText.getText()))
 			return false;
 		if(!ehDouble(mediaAtText.getText()))
 			return false;
 		if(!ehDouble(varAtText.getText()))
 			return false;
-		if(!ehDouble(mediaCxText.getText()))
-			return false;
+//		if(!ehDouble(mediaCxText.getText()))
+//			return false;
 		if(!ehDouble(varCxText.getText()))
 			return false;
 		if(!ehDouble(pacienciaText.getText()))
@@ -117,9 +121,22 @@ public class ParametrosWindow {
 			return false;
 		if(!ehInt(minText.getText()))
 			return false;
+		if(!ehInt(saltoText.getText())){
+			return false;
+		}
 		if(!(Integer.parseInt(maxText.getText()) > Integer.parseInt(minText.getText())))
 			return false;
-		return true;
+		if(Integer.parseInt(minText.getText()) <= 0)
+			return false;
+		if(qteProdutosCheck.getSelection()){
+			return true;
+		}
+		else if(interchegadaCheck.getSelection()){
+			return true;
+		}
+		else{
+			return true;
+		}		
 	}	
 	
 	private static void mostrarAdvertencia() {
@@ -183,7 +200,7 @@ public class ParametrosWindow {
 		gridLayout.numColumns = 2;
 		shell.setText("Estoque de Mercado");
 		shell.setLayout(gridLayout);
-		shell.setSize(240, 440);
+		shell.setSize(240, 480);
 		
 		tempoLabel = new Label(shell, SWT.NONE);
 		tempoLabel.setText("Tempo:");
@@ -223,29 +240,12 @@ public class ParametrosWindow {
 		qteProdutosCheck.setText("Quantidade de Produtos");		
 		interchegadaCheck = new Button(shell, SWT.CHECK);
 		interchegadaCheck.setText("Tempo de Interchegada");
-		tempoVencimentoCheck = new Button(shell, SWT.CHECK);
-		tempoVencimentoCheck.setText("Tempo de Vencimento");
+		tempoValidadeCheck = new Button(shell, SWT.CHECK);
+		tempoValidadeCheck.setText("Tempo de Vencimento");
+		mediaCxCheck = new Button(shell, SWT.CHECK);
+		mediaCxCheck.setText("Média Caixa");
 		
-		qteProdutosCheck.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				interchegadaCheck.setSelection(false);
-				tempoVencimentoCheck.setSelection(false);
-			}
-		});	
-		
-		interchegadaCheck.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				qteProdutosCheck.setSelection(false);
-				tempoVencimentoCheck.setSelection(false);				
-			}
-		});	
-		
-		tempoVencimentoCheck.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				interchegadaCheck.setSelection(false);
-				qteProdutosCheck.setSelection(false);
-			}
-		});	
+		addSelectionListeners();
 		
 		minLabel = new Label(shell, SWT.NONE);
 		minLabel.setText("Valor Mínimo");
@@ -253,6 +253,9 @@ public class ParametrosWindow {
 		maxLabel = new Label(shell, SWT.NONE);
 		maxLabel.setText("Valor Máximo");
 		maxText = new Text(shell, SWT.BORDER);
+		saltoLabel = new Label(shell, SWT.NONE);
+		saltoLabel.setText("Salto");
+		saltoText = new Text(shell, SWT.BORDER);
 		
 		Button run = new Button(shell, SWT.PUSH);
 		run.setText("RUN!!!");
@@ -263,6 +266,18 @@ public class ParametrosWindow {
 				}
 				else{
 					String parametroVariavel = getParametroVariavelEscolhido();
+					if(qteProdutosCheck.getSelection()){
+						qteProdutosText.setText("0");
+					}
+					else if(interchegadaCheck.getSelection()){
+						tempoInterChegadaText.setText("0");
+					}
+					else if(mediaCxCheck.getSelection()){
+						mediaCxText.setText("0");
+					}
+					else{
+						tempoValidadeText.setText("0");
+					}					
 					BatCreator.criarBat(tempoText.getText(),
 							tempoInterChegadaText.getText(),
 							qteProdutosText.getText(),
@@ -275,34 +290,21 @@ public class ParametrosWindow {
 							pacienciaText.getText(),							
 							minText.getText(),
 							maxText.getText(),
-							parametroVariavel);
+							parametroVariavel,
+							saltoText.getText());
 				}
 			}
 			
 		});	
+				
+		GridData data = new GridData();
+		data.horizontalSpan = 2;
+		qteProdutosCheck.setLayoutData(data);
+		interchegadaCheck.setLayoutData(data);
+		tempoValidadeCheck.setLayoutData(data);
+		mediaCxCheck.setLayoutData(data);
 		
-//		GridData data = new GridData();
-//		data.widthHint = 150;
-//		tempoLabel.setLayoutData(data);
-////		data = new GridData();
-////		data.widthHint = 150;
-//		tempoInterChegadaLabel.setLayoutData(data);
-////		data = new GridData();
-////		data.widthHint = 150;
-//		qteProdutosLabel.setLayoutData(data);
-		
-//		GridData data2 = new GridData(GridData.FILL_HORIZONTAL);
-//		tempoText.setLayoutData(data2);
-//		data2 = new GridData(GridData.FILL_HORIZONTAL);
-//		tempoInterChegadaText.setLayoutData(data2);
-//		data2 = new GridData(GridData.FILL_HORIZONTAL);
-//		qteProdutosText.setLayoutData(data2);
-		
-		GridData data3 = new GridData();
-		data3.horizontalSpan = 2;
-		qteProdutosCheck.setLayoutData(data3);
-		interchegadaCheck.setLayoutData(data3);
-		tempoVencimentoCheck.setLayoutData(data3);
+		disableAll();
 		
 		shell.open();
 		
@@ -312,6 +314,156 @@ public class ParametrosWindow {
 		}
 		display.dispose();
 		
+	}
+	
+	private static void addSelectionListeners() {
+		qteProdutosCheck.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				if(allDisabled){
+					enable();
+				}
+				tempoInterChegadaLabel.setEnabled(true);
+				tempoInterChegadaText.setEnabled(true);
+				
+				qteProdutosLabel.setEnabled(false);
+				qteProdutosText.setEnabled(false);
+				
+				tempoValidadeLabel.setEnabled(true);
+				tempoValidadeText.setEnabled(true);
+				
+				mediaCxLabel.setEnabled(true);
+				mediaCxText.setEnabled(true);
+				
+				interchegadaCheck.setSelection(false);
+				tempoValidadeCheck.setSelection(false);
+				mediaCxCheck.setSelection(false);
+			}			
+		});	
+		
+		interchegadaCheck.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				if(allDisabled){
+					enable();
+				}
+				tempoInterChegadaLabel.setEnabled(false);
+				tempoInterChegadaText.setEnabled(false);
+				
+				qteProdutosLabel.setEnabled(true);
+				qteProdutosText.setEnabled(true);
+				
+				tempoValidadeLabel.setEnabled(true);
+				tempoValidadeText.setEnabled(true);
+				
+				mediaCxLabel.setEnabled(true);
+				mediaCxText.setEnabled(true);
+				
+				qteProdutosCheck.setSelection(false);
+				tempoValidadeCheck.setSelection(false);
+				mediaCxCheck.setSelection(false);
+			}
+		});	
+		
+		tempoValidadeCheck.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				if(allDisabled){
+					enable();
+				}
+				tempoInterChegadaLabel.setEnabled(true);
+				tempoInterChegadaText.setEnabled(true);
+				
+				qteProdutosLabel.setEnabled(true);
+				qteProdutosText.setEnabled(true);
+				
+				tempoValidadeLabel.setEnabled(false);
+				tempoValidadeText.setEnabled(false);
+				
+				mediaCxLabel.setEnabled(true);
+				mediaCxText.setEnabled(true);
+				
+				interchegadaCheck.setSelection(false);
+				qteProdutosCheck.setSelection(false);
+				mediaCxCheck.setSelection(false);
+			}
+		});
+
+		mediaCxCheck.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				if(allDisabled){
+					enable();
+				}
+				tempoInterChegadaLabel.setEnabled(true);
+				tempoInterChegadaText.setEnabled(true);
+				
+				qteProdutosLabel.setEnabled(true);
+				qteProdutosText.setEnabled(true);
+				
+				tempoValidadeLabel.setEnabled(true);
+				tempoValidadeText.setEnabled(true);
+				
+				mediaCxLabel.setEnabled(false);
+				mediaCxText.setEnabled(false);
+				
+				interchegadaCheck.setSelection(false);
+				qteProdutosCheck.setSelection(false);
+				tempoValidadeCheck.setSelection(false);				
+			}
+		});
+		
+	}
+
+	private static void enable() {		
+		tempoLabel.setEnabled(true);
+		tempoText.setEnabled(true);		
+		tempoReposicaoLabel.setEnabled(true);
+		tempoReposicaoText.setEnabled(true);
+		mediaAtLabel.setEnabled(true);
+		mediaAtText.setEnabled(true);
+		varAtLabel.setEnabled(true);
+		varAtText.setEnabled(true);
+		mediaCxLabel.setEnabled(true);
+		mediaCxText.setEnabled(true);
+		varCxLabel.setEnabled(true);
+		varCxText.setEnabled(true);
+		pacienciaLabel.setEnabled(true);
+		pacienciaText.setEnabled(true);
+		minLabel.setEnabled(true);
+		minText.setEnabled(true);
+		maxLabel.setEnabled(true);		
+		maxText.setEnabled(true);
+		saltoLabel.setEnabled(true);
+		saltoText.setEnabled(true);
+		allDisabled = false;
+		
+	}
+
+	private static void disableAll() {
+		tempoLabel.setEnabled(false);
+		tempoText.setEnabled(false);
+		tempoInterChegadaLabel.setEnabled(false);
+		tempoInterChegadaText.setEnabled(false);
+		qteProdutosLabel.setEnabled(false);
+		qteProdutosText.setEnabled(false);
+		tempoValidadeLabel.setEnabled(false);
+		tempoValidadeText.setEnabled(false);
+		tempoReposicaoLabel.setEnabled(false);
+		tempoReposicaoText.setEnabled(false);
+		mediaAtLabel.setEnabled(false);
+		mediaAtText.setEnabled(false);
+		varAtLabel.setEnabled(false);
+		varAtText.setEnabled(false);
+		mediaCxLabel.setEnabled(false);
+		mediaCxText.setEnabled(false);
+		varCxLabel.setEnabled(false);
+		varCxText.setEnabled(false);
+		pacienciaLabel.setEnabled(false);
+		pacienciaText.setEnabled(false);
+		minLabel.setEnabled(false);
+		minText.setEnabled(false);
+		maxLabel.setEnabled(false);
+		maxText.setEnabled(false);
+		saltoLabel.setEnabled(false);
+		saltoText.setEnabled(false);
+		allDisabled = true;
 	}
 
 }

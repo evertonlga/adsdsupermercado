@@ -15,12 +15,14 @@ public class Caixa extends Sim_entity{
 	private Sim_normal_obj delay;	
 	private int qteVendasEfetuadas;
 	private int qteVendasPerdidas;
+	private double tempoCaixa;
 	final static String STAT_VENDAS_EFETUADAS = "Vendas efetuadas";
 	final static String STAT_VENDAS_PERDIDAS = "Vendas perdidas";
 //	public double tempo_fila = 0.0;
 
 	Caixa(String name, double tempoCaixa, double varTempoCaixa) {
       super(name);
+      this.tempoCaixa = tempoCaixa;
       qteVendasEfetuadas = 0;
       qteVendasPerdidas = 0;
       delay = new Sim_normal_obj("tempoAtendente",tempoCaixa, varTempoCaixa, Seed.getPrime());//demora 5 minutos em m�dia      
@@ -48,7 +50,11 @@ public class Caixa extends Sim_entity{
 	public int getVendasPerdidas(){
 		return qteVendasPerdidas;
 	}	
-	
+		
+	public double getTempoCaixa() {
+		return tempoCaixa;
+	}
+
 	public void body(){
 		Double last = 0.0;
 		int i = 0;
