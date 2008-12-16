@@ -99,20 +99,12 @@ public class ParametrosWindow {
 			return false;
 		if(!ehDouble(tempoText.getText()))
 			return false;
-//		if(!ehDouble(tempoInterChegadaText.getText()))
-//			return false;
-//		if(!ehInt(qteProdutosText.getText()))
-//			return false;
-//		if(!ehDouble(tempoValidadeText.getText()))
-//			return false;
 		if(!ehDouble(tempoReposicaoText.getText()))
 			return false;
 		if(!ehDouble(mediaAtText.getText()))
 			return false;
 		if(!ehDouble(varAtText.getText()))
 			return false;
-//		if(!ehDouble(mediaCxText.getText()))
-//			return false;
 		if(!ehDouble(varCxText.getText()))
 			return false;
 		if(!ehDouble(pacienciaText.getText()))

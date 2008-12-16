@@ -52,7 +52,6 @@ public class XMLProcessor {
      * @return the list of children of each node
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
     protected static List<Point> getListPoint(String filename){
      
         // Inicialize o SAX (Xerces) Parser...       

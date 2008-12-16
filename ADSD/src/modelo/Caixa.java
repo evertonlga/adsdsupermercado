@@ -15,17 +15,18 @@ public class Caixa extends Sim_entity{
 	private Sim_normal_obj delay;	
 	private int qteVendasEfetuadas;
 	private int qteVendasPerdidas;
+	private int paciencia;
 	private double tempoCaixa;
 	final static String STAT_VENDAS_EFETUADAS = "Vendas efetuadas";
 	final static String STAT_VENDAS_PERDIDAS = "Vendas perdidas";
-//	public double tempo_fila = 0.0;
 
-	Caixa(String name, double tempoCaixa, double varTempoCaixa) {
+	Caixa(String name, double tempoCaixa, double varTempoCaixa, int paciencia) {
       super(name);
       this.tempoCaixa = tempoCaixa;
+      this.paciencia = paciencia;
       qteVendasEfetuadas = 0;
       qteVendasPerdidas = 0;
-      delay = new Sim_normal_obj("tempoAtendente",tempoCaixa, varTempoCaixa, Seed.getPrime());//demora 5 minutos em m�dia      
+      delay = new Sim_normal_obj("tempoAtendente",tempoCaixa, varTempoCaixa, Seed.getPrime());      
       chegada = new Sim_port("chegadaCaixa");
       add_port(chegada);
       stat = new Sim_stat();
@@ -60,7 +61,7 @@ public class Caixa extends Sim_entity{
 		int i = 0;
 		boolean pacienciaPassou = false;
 		Double cliente = 0.0;
-		while(Sim_system.running()){//TODO T� COM FILA INFINITA!!!
+		while(Sim_system.running()){
 			Sim_event e = new Sim_event();			
 			while(Sim_system.running()){				
 				sim_get_next(e);
@@ -68,9 +69,7 @@ public class Caixa extends Sim_entity{
 					break;
 				cliente = (Double) e.get_data();
 				pacienciaPassou = false;
-//				System.out.println(Sim_system.clock() - cliente.doubleValue() < Main.getPaciencia());
-//				System.out.println("Sim_system.running()= " + Sim_system.running() + " last = " + last + "   cliente = " + cliente.doubleValue());
-				if(Sim_system.clock() - cliente.doubleValue() < Main.getPaciencia()){					
+				if(Sim_system.clock() - cliente.doubleValue() < this.paciencia){					
 					break;
 				}else if (cliente.doubleValue() != last){
 					qteVendasPerdidas++;
@@ -93,29 +92,7 @@ public class Caixa extends Sim_entity{
 				stat.update(STAT_VENDAS_EFETUADAS, Sim_system.sim_clock());
 			}			
 		}
-	}
-	
-//	public boolean testaPaciencia(){
-//		if((this.tempo_fila/1000) <= Main.getPaciencia())
-//			return true;
-//		return false;
-//	}
+	}	
+
 }
 
-	
-//class VerificadorPaciencia implements Runnable{
-//	
-//	private Caixa c;
-//	
-//	public VerificadorPaciencia(Caixa caixa) {
-//		this.
-//		c = caixa;
-//	}
-//	
-//	public void run() {
-//		Sim_event e = new Sim_event();
-//		c.sim_get_next(new Predicado(), e);
-//		
-//	}
-//	
-//}
