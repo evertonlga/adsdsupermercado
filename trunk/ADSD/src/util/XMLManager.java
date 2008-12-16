@@ -28,7 +28,6 @@ public class XMLManager {
 	 * @return the list of children of each node
 	 * @throws Exception 
 	 */
-	@SuppressWarnings("unchecked")
 	protected List<Point> getListPointXML(String filename){
 		
 		List<Point> listPoints = XMLProcessor.getListPoint(filename);

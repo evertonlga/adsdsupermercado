@@ -101,9 +101,8 @@ public class Atendente extends Sim_entity{
 	public void body(){		
 		
 		int qte = qteProduto;
-		double dataFabricacao = Sim_system.clock();
-		System.out.println("Quantidade Prod.: "+ qte);
-		while(Sim_system.running()){//TODO TA COM FILA INFINITA!!!			
+		double dataFabricacao = Sim_system.clock();		
+		while(Sim_system.running()){			
 			Sim_event e = new Sim_event();
 			double tempo;
 			do{
@@ -127,19 +126,14 @@ public class Atendente extends Sim_entity{
 					stat.update(STAT_QUANTIDADE_PRODUTOS_VENCIDOS, Sim_system.sim_clock());
 					produtosVencidos += qte;
 				}
-				qte = qteProduto;//TODO tratar quando nao tem produto ou quando venceu
+				qte = qteProduto;
 				if(Sim_system.clock() - dataFabricacao <= tempoValidade){
 					qteNaoTemProduto++;
 					stat.update(STAT_QUANTIDADE_NAO_TEM_PRODUTO, Sim_system.sim_clock());
 					acabouEstoque++;
 				}				
 				double antes = Sim_system.clock();
-				boolean renovouTempo = false;
-//				if(Sim_system.clock() - dataFabricacao > tempoValidade)//venceu produtos
-//					reporEstoqueVenceuProdutos();
-//				else//acabou estoque
-//					reporEstoqueAcabouEstoque();
-				
+				boolean renovouTempo = false;				
 				while(Sim_system.clock() - antes <= tempoReposicao){
 					sim_get_next(e);
 					if(!Sim_system.running()){

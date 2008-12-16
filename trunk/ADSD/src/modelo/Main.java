@@ -55,7 +55,7 @@ public class Main {
 		double varAt = Double.parseDouble(varAtSTR);
 		double mediaCx = Double.parseDouble(mediaCxSTR);
 		double varCx = Double.parseDouble(varCxSTR);
-		int paciencia = Integer.parseInt(pacienciaSTR);
+		int paciencia = Integer.parseInt(pacienciaSTR);		
 		double min = Double.parseDouble(minSTR);
 		double max = Double.parseDouble(maxSTR);
 		int salto = Integer.parseInt(saltoSTR);
@@ -113,7 +113,7 @@ public class Main {
 		Sim_system.initialise();		
 		Source source = new Source("fonte", i.getTempo(), i.getTempoInterChegada());
 		Atendente atendente = new Atendente("atendente", i.getMediaAt(), i.getVarAt(), i.getQteProdutos(), i.getTempoValidade(), i.getTempoReposicao());		
-		Caixa caixa = new Caixa("caixa", i.getMediaCx(), i.getVarCx());
+		Caixa caixa = new Caixa("caixa", i.getMediaCx(), i.getVarCx(), i.getPaciencia());
 		
 		Sim_system.link_ports("fonte", "saidaFonte", "atendente", "chegadaAtendente");
 		Sim_system.link_ports("atendente", "saidaAtendente", "caixa", "chegadaCaixa");		
@@ -134,36 +134,19 @@ public class Main {
 		else if(parametroVariavel.equals("tempoDeValidade")){
 			out.setParametroVariavel(atendente.getTempoValidade());
 		}
-		else{
+		else{			
 			out.setParametroVariavel(caixa.getTempoCaixa());
 		}
 		
-		if(parametroVariavel.equals("mediaCaixa")){
-			out.setQtePerdas(caixa.getVendasPerdidas());
+		if(parametroVariavel.equals("mediaCaixa")){			
+			double percent = ((double)caixa.getVendasPerdidas())/atendente.getQteAtendimentosEfetuados();						
+			out.setQtePerdas(percent);
 		}
 		else{
-			out.setQtePerdas(atendente.getNaoTemProduto() + atendente.getPerdasPorValidade());
+			out.setQtePerdas(((double)(atendente.getNaoTemProduto() + atendente.getPerdasPorValidade()))/
+											source.getQteCliente());
 		}		
-		p.salvarOutput(out);
-		
-//		System.out.println();
-//		System.out.println("===> Source <===");
-//		System.out.println("cliente = " + source.getQteCliente());
-//		System.out.println();
-//		System.out.println("===> Atendente <===");
-//		System.out.println("Qte atendimentos efetuados = " + atendente.getQteAtendimentosEfetuados());
-//		System.out.println("Qte atendimentos nao realizados por nao ter produto = " + atendente.getNaoTemProduto());
-//		System.out.println("Qte atendimentos nao realizados por produto vencido = " + atendente.getPerdasPorValidade());
-//		System.out.println("Qte produtos vencidos = " + atendente.getProdutosVencidos());
-//		System.out.println("qte perdeu validade = " + atendente.getQtePerdeuValidade());
-//		System.out.println("qte acabou estoque = " + atendente.getAcabouEstoque());
-//		System.out.println();
-//		System.out.println("===> Caixa <===");
-//		System.out.println("Qte vendas efetuadas = " + caixa.getVendasEfetuadas());
-//		System.out.println("Qte vendas perdidas = " + caixa.getVendasPerdidas());		
-//		if(atendente.getQteAtendimentosEfetuados() < caixa.getVendasEfetuadas()){
-//			System.out.println("A CASA CAIU!!!");
-//		}
+		p.salvarOutput(out);	
 		
 	}
 
