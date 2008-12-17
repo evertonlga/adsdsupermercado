@@ -3,7 +3,8 @@ package util;
 public class Output {
 	
 	private double parametroVariavel;
-	private double percentualQtePerdas;	
+	private double percentualPerdasNaoTemProduto;
+	private double percentualPerdasPorValidade; 
 	private int numeroOutput;
 	
 	public Output(){
@@ -18,12 +19,12 @@ public class Output {
 		this.parametroVariavel = parametroVariavel;
 	}
 	
-	public double getQtePerdas() {
-		return percentualQtePerdas;
+	public double getPercentualPerdasNaoTemProduto() {
+		return percentualPerdasNaoTemProduto;
 	}
 
-	public void setQtePerdas(double qtePerdas) {
-		this.percentualQtePerdas = qtePerdas;
+	public void setPercentualPerdasNaoTemProduto(double qtePerdas) {
+		this.percentualPerdasNaoTemProduto = qtePerdas;
 	}
 
 	public int getNumeroOutput() {
@@ -32,6 +33,14 @@ public class Output {
 
 	public void setNumeroOutput(int numeroOutput) {
 		this.numeroOutput = numeroOutput;
+	}
+
+	public void setPercentualPerdasPorValidade(double percentualPerdasPorValidade) {
+		this.percentualPerdasPorValidade = percentualPerdasPorValidade;
+	}
+
+	public double getPercentualPerdasPorValidade() {
+		return percentualPerdasPorValidade;
 	}	
 	
 }

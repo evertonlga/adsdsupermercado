@@ -14,7 +14,7 @@ public class GeraGrafico {
 	public static ChartPanel getGrafico(String xName, String yName){
 		
 		JFreeChart chart = ChartFactory.createXYLineChart
-		                     ("Analise", // titulo do grafico
+		                     ("Análise", // titulo do grafico
 		                      xName, // eixo X
 		                      yName,            // eixo Y
 		                      createDataset(),     // dados para o gráfico
@@ -35,38 +35,27 @@ public class GeraGrafico {
 		  XMLManager xmlManager = XMLManager.getInstance();
 		  List<Point> points = xmlManager.getListPointXML(Util.OUTPUT);
 		  
-		  XYSeries serie = new XYSeries("");
-		  for (Point p : points){
-			  serie.add(p.getX(), p.getY());
+		  XYSeriesCollection series = new XYSeriesCollection();
+		  if(JanelaComGrafico.getArg().equals("mediaCaixa")){
+			  XYSeries serie1 = new XYSeries("Perda por estouro de paciência");
+			  for (Point p : points){
+				  serie1.add(p.getX(), p.getY1());				  
+			  }
+			  series.addSeries(serie1);
 		  }
-//		  List<Integer> pontos = new ArrayList<Integer>();
-//		  	pontos.add(15);
-//		  	pontos.add(2);
-//		  	pontos.add(125);
-//	        TimeSeries s1 = new TimeSeries("Perdas");
-//	        s1.add(null, pontos.get(0));
-//	        s1.add(null, pontos.get(1));
-//	        s1.add(null, pontos.get(2));
-//	        s1.add(new Month(2, 2005), 181.8);
-//	        s1.add(new Month(3, 2005), 167.3);
-//	        s1.add(new Month(4, 2005), 153.8);
-//	        s1.add(new Month(5, 2005), 167.6);
-//	        s1.add(new Month(6, 2005), 158.8);
-
-//	        TimeSeries s2 = new TimeSeries("Frísias", Month.class);
-//	        s2.add(new Month(1, 2005), 129.6);
-//	        s2.add(new Month(2, 2005), 129.6);
-//	        s2.add(new Month(3, 2005), 123.2);
-//	        s2.add(new Month(4, 2005), 117.2);
-//	        s2.add(new Month(5, 2005), 124.1);
-//	        s2.add(new Month(6, 2005), 122.6);
-
-//	        TimeSeriesCollection dataset = new TimeSeriesCollection();
-//	        dataset.addSeries(s1);
-//	        dataset.addSeries(s2);
-//	        dataset.setDomainIsPointsInTime(true);
-	        
-		  	return new XYSeriesCollection(serie);
+		  else{
+			  XYSeries serie1 = new XYSeries("Perda por nao ter estoque");
+			  XYSeries serie2 = new XYSeries("Perda por validade");
+			  for (Point p : points){
+				  serie1.add(p.getX(), p.getY1());
+				  serie2.add(p.getX(), p.getY2());
+			  }
+			  series.addSeries(serie1);
+			  series.addSeries(serie2);
+  
+		  }
+		  		  
+		  return series;
 
 	    }	
 
