@@ -89,7 +89,10 @@ public class XMLProcessor {
 				point.setX(ponto);
 			}
 			else if(i == 1){
-				point.setY(ponto);
+				point.setY1(ponto);
+			}
+			else if(i == 2){
+				point.setY2(ponto);
 			}
 		}
 		return point;

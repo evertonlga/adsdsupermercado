@@ -7,21 +7,19 @@ import java.util.List;
 import util.Input;
 import util.Output;
 import util.Parser;
+import util.Util;
 
 import com.thoughtworks.xstream.XStream;
 
+import eduni.simjava.Sim_stat;
 import eduni.simjava.Sim_system;
 
 
 public class Main {
 	
-	private static double paciencia;
 	private final static String XML_INPUT = "input.xml";
 	private static String parametroVariavel;
 	
-	public static double getPaciencia(){
-		return paciencia;
-	}
 
 	/*String tempo, String tempoInterChegada,
 	String qteProdutos, String tempoValidade, String tempoReposicao,
@@ -120,9 +118,23 @@ public class Main {
 		Sim_system.set_trace_detail(false, false, false);
 
 		Sim_system.set_report_detail(false, false);
-		Sim_system.generate_graphs("supermercado.sjg");
+//		Sim_system.generate_graphs("supermercado.sjg");
 		
-		Sim_system.run();
+//		Sim_system.set_transient_condition(Sim_system.TIME_ELAPSED, 100);
+		
+		Sim_system.set_termination_condition(Sim_system.INTERVAL_ACCURACY,
+				Sim_system.IND_REPLICATIONS, Util.CONFIDENCE_LEVEL, Util.ACCURACY, "atendente",
+				Sim_stat.THROUGHPUT);
+		
+//		Sim_system.set_termination_condition(Sim_system.INTERVAL_ACCURACY,
+//    			Sim_system.IND_REPLICATIONS,
+//    			Util.CONFIDENCE_LEVEL,
+//    			Util.ACCURACY,
+//    			"atendente",
+//    			Sim_stat.UTILISATION);		
+		
+		Sim_system.run();		
+		
 		Output out = new Output();
 		
 		if(parametroVariavel.equals("qteDeProdutos")){			
@@ -140,11 +152,11 @@ public class Main {
 		
 		if(parametroVariavel.equals("mediaCaixa")){			
 			double percent = ((double)caixa.getVendasPerdidas())/atendente.getQteAtendimentosEfetuados();						
-			out.setQtePerdas(percent);
+			out.setPercentualPerdasNaoTemProduto(percent);
 		}
 		else{
-			out.setQtePerdas(((double)(atendente.getNaoTemProduto() + atendente.getPerdasPorValidade()))/
-											source.getQteCliente());
+			out.setPercentualPerdasNaoTemProduto(((double)(atendente.getNaoTemProduto()))/source.getQteCliente());
+			out.setPercentualPerdasPorValidade(((double)(atendente.getPerdasPorValidade()))/source.getQteCliente());
 		}		
 		p.salvarOutput(out);	
 		

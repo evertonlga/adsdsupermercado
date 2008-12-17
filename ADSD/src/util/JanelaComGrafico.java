@@ -6,6 +6,7 @@ public class JanelaComGrafico extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private static String xName;
 	private static String yName;
+	private static String arg;
 	
 	public JanelaComGrafico() {
 		setSize(400, 200);
@@ -16,11 +17,22 @@ public class JanelaComGrafico extends JFrame {
 		getContentPane().add( GeraGrafico.getGrafico(xName, yName) );
 	}
 
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
-		xName  = args[0];
-		yName  = "Perdas";
+		arg = args[0];
+		if(arg.equals("mediaCaixa")){
+			xName = "Tempo de atendimento do caixa";
+		}
+		else{
+			xName  = args[0];
+		}
+		yName  = "% de perdas";
 		JanelaComGrafico janela = new JanelaComGrafico();
 		janela.show();
+	}
+
+	public static String getArg() {
+		return arg;
 	}
 
 }
