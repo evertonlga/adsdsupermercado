@@ -3,11 +3,11 @@
     <tempo>10000</tempo>
     <tempoInterChegada>5.0</tempoInterChegada>
     <qteProdutos>100</qteProdutos>
-    <tempoValidade>500.0</tempoValidade>
+    <tempoValidade>100.0</tempoValidade>
     <tempoReposicao>50.0</tempoReposicao>
     <mediaAt>5.0</mediaAt>
     <varAt>1.0</varAt>
-    <mediaCx>1.0</mediaCx>
+    <mediaCx>5.0</mediaCx>
     <varCx>1.0</varCx>
     <paciencia>10</paciencia>
   </util.Input>
@@ -15,11 +15,11 @@
     <tempo>10000</tempo>
     <tempoInterChegada>5.0</tempoInterChegada>
     <qteProdutos>100</qteProdutos>
-    <tempoValidade>500.0</tempoValidade>
+    <tempoValidade>200.0</tempoValidade>
     <tempoReposicao>50.0</tempoReposicao>
     <mediaAt>5.0</mediaAt>
     <varAt>1.0</varAt>
-    <mediaCx>2.0</mediaCx>
+    <mediaCx>5.0</mediaCx>
     <varCx>1.0</varCx>
     <paciencia>10</paciencia>
   </util.Input>
@@ -27,11 +27,11 @@
     <tempo>10000</tempo>
     <tempoInterChegada>5.0</tempoInterChegada>
     <qteProdutos>100</qteProdutos>
-    <tempoValidade>500.0</tempoValidade>
+    <tempoValidade>300.0</tempoValidade>
     <tempoReposicao>50.0</tempoReposicao>
     <mediaAt>5.0</mediaAt>
     <varAt>1.0</varAt>
-    <mediaCx>3.0</mediaCx>
+    <mediaCx>5.0</mediaCx>
     <varCx>1.0</varCx>
     <paciencia>10</paciencia>
   </util.Input>
@@ -39,11 +39,11 @@
     <tempo>10000</tempo>
     <tempoInterChegada>5.0</tempoInterChegada>
     <qteProdutos>100</qteProdutos>
-    <tempoValidade>500.0</tempoValidade>
+    <tempoValidade>400.0</tempoValidade>
     <tempoReposicao>50.0</tempoReposicao>
     <mediaAt>5.0</mediaAt>
     <varAt>1.0</varAt>
-    <mediaCx>4.0</mediaCx>
+    <mediaCx>5.0</mediaCx>
     <varCx>1.0</varCx>
     <paciencia>10</paciencia>
   </util.Input>
@@ -63,11 +63,11 @@
     <tempo>10000</tempo>
     <tempoInterChegada>5.0</tempoInterChegada>
     <qteProdutos>100</qteProdutos>
-    <tempoValidade>500.0</tempoValidade>
+    <tempoValidade>600.0</tempoValidade>
     <tempoReposicao>50.0</tempoReposicao>
     <mediaAt>5.0</mediaAt>
     <varAt>1.0</varAt>
-    <mediaCx>6.0</mediaCx>
+    <mediaCx>5.0</mediaCx>
     <varCx>1.0</varCx>
     <paciencia>10</paciencia>
   </util.Input>
@@ -75,11 +75,11 @@
     <tempo>10000</tempo>
     <tempoInterChegada>5.0</tempoInterChegada>
     <qteProdutos>100</qteProdutos>
-    <tempoValidade>500.0</tempoValidade>
+    <tempoValidade>700.0</tempoValidade>
     <tempoReposicao>50.0</tempoReposicao>
     <mediaAt>5.0</mediaAt>
     <varAt>1.0</varAt>
-    <mediaCx>7.0</mediaCx>
+    <mediaCx>5.0</mediaCx>
     <varCx>1.0</varCx>
     <paciencia>10</paciencia>
   </util.Input>
@@ -87,11 +87,11 @@
     <tempo>10000</tempo>
     <tempoInterChegada>5.0</tempoInterChegada>
     <qteProdutos>100</qteProdutos>
-    <tempoValidade>500.0</tempoValidade>
+    <tempoValidade>800.0</tempoValidade>
     <tempoReposicao>50.0</tempoReposicao>
     <mediaAt>5.0</mediaAt>
     <varAt>1.0</varAt>
-    <mediaCx>8.0</mediaCx>
+    <mediaCx>5.0</mediaCx>
     <varCx>1.0</varCx>
     <paciencia>10</paciencia>
   </util.Input>
@@ -99,11 +99,11 @@
     <tempo>10000</tempo>
     <tempoInterChegada>5.0</tempoInterChegada>
     <qteProdutos>100</qteProdutos>
-    <tempoValidade>500.0</tempoValidade>
+    <tempoValidade>900.0</tempoValidade>
     <tempoReposicao>50.0</tempoReposicao>
     <mediaAt>5.0</mediaAt>
     <varAt>1.0</varAt>
-    <mediaCx>9.0</mediaCx>
+    <mediaCx>5.0</mediaCx>
     <varCx>1.0</varCx>
     <paciencia>10</paciencia>
   </util.Input>
@@ -111,11 +111,11 @@
     <tempo>10000</tempo>
     <tempoInterChegada>5.0</tempoInterChegada>
     <qteProdutos>100</qteProdutos>
-    <tempoValidade>500.0</tempoValidade>
+    <tempoValidade>1000.0</tempoValidade>
     <tempoReposicao>50.0</tempoReposicao>
     <mediaAt>5.0</mediaAt>
     <varAt>1.0</varAt>
-    <mediaCx>10.0</mediaCx>
+    <mediaCx>5.0</mediaCx>
     <varCx>1.0</varCx>
     <paciencia>10</paciencia>
   </util.Input>
