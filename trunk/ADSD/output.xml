@@ -1,52 +1,62 @@
 <list>
   <util.Output>
-    <parametroVariavel>1.0</parametroVariavel>
-    <qtePerdas>1632</qtePerdas>
+    <parametroVariavel>100.0</parametroVariavel>
+    <percentualPerdasNaoTemProduto>0.0</percentualPerdasNaoTemProduto>
+    <percentualPerdasPorValidade>0.4660098522167488</percentualPerdasPorValidade>
     <numeroOutput>0</numeroOutput>
   </util.Output>
   <util.Output>
-    <parametroVariavel>2.0</parametroVariavel>
-    <qtePerdas>1683</qtePerdas>
+    <parametroVariavel>200.0</parametroVariavel>
+    <percentualPerdasNaoTemProduto>0.0</percentualPerdasNaoTemProduto>
+    <percentualPerdasPorValidade>0.29876796714579057</percentualPerdasPorValidade>
     <numeroOutput>1</numeroOutput>
   </util.Output>
   <util.Output>
-    <parametroVariavel>3.0</parametroVariavel>
-    <qtePerdas>1686</qtePerdas>
+    <parametroVariavel>300.0</parametroVariavel>
+    <percentualPerdasNaoTemProduto>0.0</percentualPerdasNaoTemProduto>
+    <percentualPerdasPorValidade>0.2198473282442748</percentualPerdasPorValidade>
     <numeroOutput>2</numeroOutput>
   </util.Output>
   <util.Output>
-    <parametroVariavel>4.0</parametroVariavel>
-    <qtePerdas>1627</qtePerdas>
+    <parametroVariavel>400.0</parametroVariavel>
+    <percentualPerdasNaoTemProduto>0.0</percentualPerdasNaoTemProduto>
+    <percentualPerdasPorValidade>0.21078921078921078</percentualPerdasPorValidade>
     <numeroOutput>3</numeroOutput>
   </util.Output>
   <util.Output>
-    <parametroVariavel>5.0</parametroVariavel>
-    <qtePerdas>1653</qtePerdas>
+    <parametroVariavel>500.0</parametroVariavel>
+    <percentualPerdasNaoTemProduto>0.0</percentualPerdasNaoTemProduto>
+    <percentualPerdasPorValidade>0.16851664984863773</percentualPerdasPorValidade>
     <numeroOutput>4</numeroOutput>
   </util.Output>
   <util.Output>
-    <parametroVariavel>6.0</parametroVariavel>
-    <qtePerdas>1638</qtePerdas>
+    <parametroVariavel>600.0</parametroVariavel>
+    <percentualPerdasNaoTemProduto>0.12320328542094455</percentualPerdasNaoTemProduto>
+    <percentualPerdasPorValidade>0.015400410677618069</percentualPerdasPorValidade>
     <numeroOutput>5</numeroOutput>
   </util.Output>
   <util.Output>
-    <parametroVariavel>7.0</parametroVariavel>
-    <qtePerdas>1656</qtePerdas>
+    <parametroVariavel>700.0</parametroVariavel>
+    <percentualPerdasNaoTemProduto>0.13578356304236855</percentualPerdasNaoTemProduto>
+    <percentualPerdasPorValidade>0.0015313935681470138</percentualPerdasPorValidade>
     <numeroOutput>6</numeroOutput>
   </util.Output>
   <util.Output>
-    <parametroVariavel>8.0</parametroVariavel>
-    <qtePerdas>1649</qtePerdas>
+    <parametroVariavel>800.0</parametroVariavel>
+    <percentualPerdasNaoTemProduto>0.145748987854251</percentualPerdasNaoTemProduto>
+    <percentualPerdasPorValidade>0.0</percentualPerdasPorValidade>
     <numeroOutput>7</numeroOutput>
   </util.Output>
   <util.Output>
-    <parametroVariavel>9.0</parametroVariavel>
-    <qtePerdas>1678</qtePerdas>
+    <parametroVariavel>900.0</parametroVariavel>
+    <percentualPerdasNaoTemProduto>0.16634146341463416</percentualPerdasNaoTemProduto>
+    <percentualPerdasPorValidade>0.0</percentualPerdasPorValidade>
     <numeroOutput>8</numeroOutput>
   </util.Output>
   <util.Output>
-    <parametroVariavel>10.0</parametroVariavel>
-    <qtePerdas>1683</qtePerdas>
+    <parametroVariavel>1000.0</parametroVariavel>
+    <percentualPerdasNaoTemProduto>0.13877551020408163</percentualPerdasNaoTemProduto>
+    <percentualPerdasPorValidade>0.0</percentualPerdasPorValidade>
     <numeroOutput>9</numeroOutput>
   </util.Output>
 </list>

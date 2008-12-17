@@ -6,135 +6,231 @@
 
 Version: SimJava 2.0
 
-Simulation date:         11 de Dezembro de 2008
-Simulation start time:   23h29min44s GMT-03:00
-Simulation end time:     23h29min46s GMT-03:00
+Simulation date:         17 de Dezembro de 2008
+Simulation start time:   15h28min48s GMT-03:00
+Simulation end time:     15h28min50s GMT-03:00
 
 ############################################################
 #            Overall simulation run information            #
 ############################################################
 
-Total simulated time:    10007.158677077507
+Total simulated time:    50135.75250206088
 Total transient time:    0.0
-Total steady state time: 10007.158677077507
+Total steady state time: 50135.75250206088
 Transient condition:     None
-Termination condition:   None
-Output analysis method:  None
+Termination condition:   Confidence interval accuracy for Throughput of atendente
+Output analysis method:  Independent replications
+Confidence level:        0.95
+Replications performed:  5
 
 ############################################################
-#               Simulation run measurements                #
+#       Total measurements and confidence intervals        #
 ############################################################
 
 ------------------------ atendente -------------------------
 
 - Queue length
 
-Sample mean:          5.275444429083866
-Sample variance:      31.632494012168827
-Sample std deviation: 5.624277199086904
-Maximum:              26.0
-Minimum:              0.0
+Total mean:          4.248984343143934
+Interval low bound:  3.1221757609625524
+Interval high bound: 5.375792925325316
+Interval half width: 1.1268085821813816
+Accuracy ratio:      0.26519480684827057
+Mean variance:       0.16471082172947732
+Mean std deviation:  0.40584581028942174
+Total maximum:       38.0
+Total minimum:       0.0
 
 - Arrival rate
 
-Sample mean:          0.20375413899157538
-Event count:          2039
+Total mean:          0.1980639376384227
+Interval low bound:  0.19100129515632366
+Interval high bound: 0.20512658012052173
+Interval half width: 0.007062642482099035
+Accuracy ratio:      0.03565839681018712
+Mean variance:       6.4707748150733435E-6
+Mean std deviation:  0.0025437717694544344
+Average event count: 1986.0
 
 - Service time
 
-Sample mean:          5.001761675956571
-Sample variance:      0.9774223499966849
-Sample std deviation: 0.9886467265897788
-Maximum:              8.58939364910384
-Minimum:              1.8436884375460068
+Total mean:          4.976525491049921
+Interval low bound:  4.936411019503224
+Interval high bound: 5.016639962596619
+Interval half width: 0.04011447154669767
+Accuracy ratio:      0.008060738685824435
+Mean variance:       2.0874880230347336E-4
+Mean std deviation:  0.014448141828743008
+Total maximum:       8.538973871541657
+Total minimum:       1.0146050466109955
 
 - Utilisation
 
-Sample mean:          0.8411943062237215
+Total mean:          0.8402757169040669
+Interval low bound:  0.8190652031369907
+Interval high bound: 0.861486230671143
+Interval half width: 0.021210513767076167
+Accuracy ratio:      0.025242326227425404
+Mean variance:       5.8361200686383214E-5
+Mean std deviation:  0.007639450286924002
 
 - Waiting time
 
-Sample mean:          25.891225843034253
-Sample variance:      657.984941095663
-Sample std deviation: 25.65121714647597
-Maximum:              121.36359347097368
-Minimum:              0.0
+Total mean:          21.368338571357942
+Interval low bound:  16.44430310918325
+Interval high bound: 26.292374033532635
+Interval half width: 4.924035462174693
+Accuracy ratio:      0.23043604657101682
+Mean variance:       3.145315286875118
+Mean std deviation:  1.7735036754614066
+Total maximum:       159.22289249076675
+Total minimum:       0.0
 
 - Throughput
 
-Sample mean:          0.16817960565121207
-Event count:          1683
+Total mean:          0.168842661842338
+Interval low bound:  0.16525543997953604
+Interval high bound: 0.17242988370513998
+Interval half width: 0.0035872218628019703
+Accuracy ratio:      0.0212459447373061
+Mean variance:       1.6693150824309853E-6
+Mean std deviation:  0.001292019768591404
+Average event count: 1693.0
 
 - Atendimentos efetuados
 
-Sample mean:          0.16817960565121207
-Event count:          1683
+Total mean:          0.168842661842338
+Interval low bound:  0.16525543997953604
+Interval high bound: 0.17242988370513998
+Interval half width: 0.0035872218628019703
+Accuracy ratio:      0.0212459447373061
+Mean variance:       1.6693150824309853E-6
+Mean std deviation:  0.001292019768591404
+Average event count: 1693.0
 
 - Quantidade não tem produto
 
-Sample mean:          0.0034974962553728
-Event count:          35
+Total mean:          0.02922127579608468
+Interval low bound:  0.025502769216637144
+Interval high bound: 0.03293978237553221
+Interval half width: 0.0037185065794475333
+Accuracy ratio:      0.12725339596383303
+Mean variance:       1.7937377585661372E-6
+Mean std deviation:  0.001339304953536026
+Average event count: 293.0
 
 - Quantidade produtos vencidos
 
-Sample mean:          0.03537467641148489
-Event count:          354
+Total mean:          0.027585658415112624
+Interval low bound:  0.023905233466338924
+Interval high bound: 0.031266083363886324
+Interval half width: 0.0036804249487737
+Accuracy ratio:      0.13341805707118454
+Mean variance:       1.7571861590387833E-6
+Mean std deviation:  0.0013255889857111756
+Average event count: 276.6
 
 -------------------------- caixa ---------------------------
 
 - Queue length
 
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              1.0
-Minimum:              0.0
+Total mean:          0.4939785885856195
+Interval low bound:  0.44514482564113783
+Interval high bound: 0.5428123515301012
+Interval half width: 0.04883376294448169
+Accuracy ratio:      0.09885805594186702
+Mean variance:       3.0935862091442337E-4
+Mean std deviation:  0.017588593488804708
+Total maximum:       4.0
+Total minimum:       0.0
 
 - Arrival rate
 
-Sample mean:          0.16817960565121207
-Event count:          1683
+Total mean:          0.168842661842338
+Interval low bound:  0.16525543997953604
+Interval high bound: 0.17242988370513998
+Interval half width: 0.0035872218628019703
+Accuracy ratio:      0.0212459447373061
+Mean variance:       1.6693150824309853E-6
+Mean std deviation:  0.001292019768591404
+Average event count: 1693.0
 
 - Residence time
 
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
+Total mean:          7.807206723262122
+Interval low bound:  7.5937920185188705
+Interval high bound: 8.020621428005374
+Interval half width: 0.21341470474325153
+Accuracy ratio:      0.027335603155910677
+Mean variance:       0.005908408600558074
+Mean std deviation:  0.0768661733180342
+Total maximum:       17.114230709702497
+Total minimum:       1.3854914361781994
 
 - Waiting time
 
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
+Total mean:          2.9241632809713565
+Interval low bound:  2.674381594840029
+Interval high bound: 3.173944967102684
+Interval half width: 0.24978168613132734
+Accuracy ratio:      0.08541988327285001
+Mean variance:       0.008093624052517056
+Mean std deviation:  0.08996457109616572
+Total maximum:       13.635460845204761
+Total minimum:       0.0
 
 - Service time
 
-Sample mean:          0.0
-Sample variance:      0.0
-Sample std deviation: 0.0
-Maximum:              0.0
-Minimum:              0.0
+Total mean:          4.989819720346711
+Interval low bound:  4.958713234327826
+Interval high bound: 5.020926206365596
+Interval half width: 0.031106486018884993
+Accuracy ratio:      0.006233989955998531
+Mean variance:       1.255231265798356E-4
+Mean std deviation:  0.011203710393429295
+Total maximum:       8.507589762422867
+Total minimum:       1.3854914361781994
 
 - Utilisation
 
-Sample mean:          0.0
+Total mean:          0.8312349191279165
+Interval low bound:  0.8156080811813875
+Interval high bound: 0.8468617570744454
+Interval half width: 0.01562683794652897
+Accuracy ratio:      0.01879954461360188
+Mean variance:       3.1678459836470825E-5
+Mean std deviation:  0.00562836209180529
 
 - Throughput
 
-Sample mean:          0.0
-Event count:          0
+Total mean:          0.16658856498862107
+Interval low bound:  0.1633818846457814
+Interval high bound: 0.16979524533146073
+Interval half width: 0.003206680342839663
+Accuracy ratio:      0.01924910238021853
+Mean variance:       1.3339304327417399E-6
+Mean std deviation:  0.0011549590610674214
+Average event count: 1670.4
 
 - Vendas efetuadas
 
-Sample mean:          0.0
-Event count:          0
+Total mean:          0.16658856498862107
+Interval low bound:  0.1633818846457814
+Interval high bound: 0.16979524533146073
+Interval half width: 0.003206680342839663
+Accuracy ratio:      0.01924910238021853
+Mean variance:       1.3339304327417399E-6
+Mean std deviation:  0.0011549590610674214
+Average event count: 1670.4
 
 - Vendas perdidas
 
-Sample mean:          0.16817960565121207
-Event count:          1683
+Total mean:          0.002254096853716971
+Interval low bound:  0.001674355243903153
+Interval high bound: 0.002833838463530789
+Interval half width: 5.797416098138179E-4
+Accuracy ratio:      0.25719463156954986
+Mean variance:       4.360043135866612E-8
+Mean std deviation:  2.0880716309232812E-4
+Average event count: 22.6
 
