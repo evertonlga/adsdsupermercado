@@ -1,5 +1,10 @@
 package util;
 
+/**
+ * Classe com as constantes utéis para a simulação
+ * @author Everton, Diego, Leonardo
+ *
+ */
 public class Util {
 
 	public static final String OUTPUT = "output.xml";

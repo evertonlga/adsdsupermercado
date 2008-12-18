@@ -1,6 +1,11 @@
-package util;
+package view;
 import javax.swing.JFrame;
 
+/**
+ * Classe responsável por criar o gráfico de anpalise
+ * @author Everton, Diego, Leonardo
+ *
+ */
 public class JanelaComGrafico extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
@@ -8,6 +13,9 @@ public class JanelaComGrafico extends JFrame {
 	private static String yName;
 	private static String arg;
 	
+	/**
+	 * Construtor
+	 */
 	public JanelaComGrafico() {
 		setSize(400, 200);
 		setTitle("Grafico");
@@ -31,6 +39,10 @@ public class JanelaComGrafico extends JFrame {
 		janela.show();
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public static String getArg() {
 		return arg;
 	}
