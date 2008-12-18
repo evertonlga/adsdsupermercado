@@ -13,29 +13,29 @@ public class BatCreator {
 
 	/**
 	 * Método responsável por criar os arquivos .bat necessário para simulação
-	 * @param tempoSTR
+	 * @param tempo
 	 *            Tempo de simulacao
-	 * @param tempoInterChegadaSTR
+	 * @param tempoInterChegada
 	 *            Tempo interchegada
-	 * @param qteProdutosSTR
+	 * @param qteProdutos
 	 *            Quantidade de produtos
-	 * @param tempoValidadeSTR
+	 * @param tempoValidade
 	 *            Tempo de validade
-	 * @param tempoReposicaoSTR
+	 * @param tempoReposicao
 	 *            Tempo para reposicao do estoque
-	 * @param mediaAtSTR
+	 * @param mediaAt
 	 *            Media de atendimento do atendente
-	 * @param varAtSTR
+	 * @param varAt
 	 *            Variancia de atendimento do atendente
-	 * @param mediaCxSTR
+	 * @param mediaCx
 	 *            Media de atendimento do caixa
-	 * @param varCxSTR
+	 * @param varCx
 	 *            Variancia de atendimento do caixa
-	 * @param pacienciaSTR
+	 * @param paciencia
 	 *            Tempo máximo de paciencia do cliente
 	 * @param minSTR
 	 *            Valor mínimo para o parametro a ser variado
-	 * @param maxSTR
+	 * @param minSTR
 	 *            Valor maximo para o parametro a ser variado
 	 * @param parametroVariavel
 	 *            parametro a ser variado

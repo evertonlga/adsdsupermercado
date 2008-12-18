@@ -41,7 +41,7 @@ public class JanelaComGrafico extends JFrame {
 
 	/**
 	 * 
-	 * @return
+	 * @return Argumento
 	 */
 	public static String getArg() {
 		return arg;
