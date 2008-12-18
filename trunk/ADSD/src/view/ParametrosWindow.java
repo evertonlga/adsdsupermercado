@@ -16,9 +16,13 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-
 import util.BatCreator;
 
+/**
+ * Classe responsável por criar a interface de captura dos dados de entrada
+ * @author Everton, Diego, Leonardo
+ *
+ */
 public class ParametrosWindow {
 
 	private static Display display;

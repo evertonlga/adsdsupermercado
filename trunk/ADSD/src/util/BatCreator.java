@@ -1,12 +1,47 @@
 package util;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * Classe reponsável por gerar os arquivos .bat necessários pra execução das simulações
+ * @author Everton, Diego, Leonardo
+ *
+ */
 public class BatCreator {
 	
 	private final static String comando = "java -jar lib/estoque.jar";
 
+	/**
+	 * Método responsável por criar os arquivos .bat necessário para simulação
+	 * @param tempoSTR
+	 *            Tempo de simulacao
+	 * @param tempoInterChegadaSTR
+	 *            Tempo interchegada
+	 * @param qteProdutosSTR
+	 *            Quantidade de produtos
+	 * @param tempoValidadeSTR
+	 *            Tempo de validade
+	 * @param tempoReposicaoSTR
+	 *            Tempo para reposicao do estoque
+	 * @param mediaAtSTR
+	 *            Media de atendimento do atendente
+	 * @param varAtSTR
+	 *            Variancia de atendimento do atendente
+	 * @param mediaCxSTR
+	 *            Media de atendimento do caixa
+	 * @param varCxSTR
+	 *            Variancia de atendimento do caixa
+	 * @param pacienciaSTR
+	 *            Tempo máximo de paciencia do cliente
+	 * @param minSTR
+	 *            Valor mínimo para o parametro a ser variado
+	 * @param maxSTR
+	 *            Valor maximo para o parametro a ser variado
+	 * @param parametroVariavel
+	 *            parametro a ser variado
+	 * @param saltoSTR
+	 *            Valor do salto da variacao
+	 */
 	public static void criarBat(String tempo, String tempoInterChegada,
 			String qteProdutos, String tempoValidade, String tempoReposicao,
 			String mediaAt, String varAt, String mediaCx, String varCx,

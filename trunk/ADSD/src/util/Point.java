@@ -1,11 +1,18 @@
 package util;
 
+/**
+ * Classe que representa um ponto no gráfico
+ * @author Everton, Diego, Leonardo
+ *
+ */
 public class Point {
 
 	 private double x;
 	 private double y1;
 	 private double y2;	
-	/**
+	
+	 /**
+	 * Construtor Point
 	 * @param x
 	 * @param y
 	 */
